@@ -1,9 +1,8 @@
-import { Avatar, Button, Container, InputAdornment, TextField } from '@mui/material'
-import FacebookTwoToneIcon from '@mui/icons-material/FacebookTwoTone'
+import logo from '@/assets/img/logo.png'
 import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import PhoneIcon from '@mui/icons-material/Phone'
 import SearchIcon from '@mui/icons-material/Search'
-import logo from '@/assets/img/logo.png'
+import { Avatar, Button, Container, InputAdornment, TextField } from '@mui/material'
 
 function Header() {
     return (
@@ -27,7 +26,7 @@ function Header() {
                 <Container className="grid grid-cols-3 mt-3 mb-3 items-center">
                     <div className="logo flex items-center gap-3">
                         {/* <FacebookTwoToneIcon className="text-8xl" color="primary" /> */}
-                        <img src={logo} alt="logo" className='w-3/12'/>
+                        <img src={logo} alt="logo" className="w-3/12" />
                         <div>
                             <div className="flex items-center gap-1">
                                 <MailOutlineIcon className="text-base" color="primary" />

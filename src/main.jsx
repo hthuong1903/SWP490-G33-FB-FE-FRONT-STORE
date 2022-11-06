@@ -6,11 +6,13 @@ import { theme } from './assets/theme'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { BrowserRouter } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
+import FloatContact from './components/FloatContact'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <BrowserRouter>
             <ThemeProvider theme={theme}>
+                <FloatContact />
                 <CssBaseline />
                 <ToastContainer
                     position="top-right"
