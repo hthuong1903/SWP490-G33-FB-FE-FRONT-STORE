@@ -3,6 +3,7 @@ import FacebookTwoToneIcon from '@mui/icons-material/FacebookTwoTone'
 import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import PhoneIcon from '@mui/icons-material/Phone'
 import SearchIcon from '@mui/icons-material/Search'
+import logo from '@/assets/img/logo.png'
 
 function Header() {
     return (
@@ -23,9 +24,10 @@ function Header() {
                 </Container>
             </div>
             <div>
-                <Container className="flex items-center justify-between mt-3 mb-3">
+                <Container className="grid grid-cols-3 mt-3 mb-3 items-center">
                     <div className="logo flex items-center gap-3">
-                        <FacebookTwoToneIcon className="text-8xl" color="primary" />
+                        {/* <FacebookTwoToneIcon className="text-8xl" color="primary" /> */}
+                        <img src={logo} alt="logo" className='w-3/12'/>
                         <div>
                             <div className="flex items-center gap-1">
                                 <MailOutlineIcon className="text-base" color="primary" />
@@ -33,7 +35,9 @@ function Header() {
                             </div>
                             <div className="flex items-center gap-1">
                                 <PhoneIcon className="text-base" color="primary" />
-                                <span className="font-medium">Hotline: 0986.666.666</span>
+                                <span className="font-medium">
+                                    <a href="tel:0986666666">Hotline: 0986.666.666</a>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -52,7 +56,7 @@ function Header() {
                             }}
                         />
                     </div>
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 justify-end">
                         <div className="flex items-center gap-2">
                             <Avatar />
                             <div>
