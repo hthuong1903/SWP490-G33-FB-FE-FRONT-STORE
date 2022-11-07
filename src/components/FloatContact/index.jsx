@@ -9,32 +9,32 @@ function FloatContact() {
                 <li className="bg-mistyrose rounded ">
                     <a href="#" className="flex gap-2 items-center mb-2 p-2">
                         <WhatsAppIcon className="text-facebook" />
-                        <span className="font-bold">Zalo</span>
+                        {/* <span className="font-bold">Zalo</span> */}
                     </a>
                 </li>
                 <li className="bg-mistyrose rounded ">
                     <a href="#" className="flex gap-2 items-center mb-2 p-2">
                         <FacebookRoundedIcon className="text-facebook" />
-                        <span className="font-bold">Facebook</span>
+                        {/* <span className="font-bold">Facebook</span> */}
                     </a>
                 </li>
                 <li className="bg-mistyrose rounded ">
                     <a href="#" className="flex gap-2 items-center mb-2 p-2">
                         <MailRoundedIcon className="text-ming" />
-                        <span className="font-bold">Mail</span>
+                        {/* <span className="font-bold">Mail</span> */}
                     </a>
                 </li>
                 <li className="bg-mistyrose rounded ">
                     <a href="#" className="flex gap-2 items-center mb-2 p-2">
                         <YouTubeIcon className="text-youtube" />
-                        <span className="font-bold">Youtube</span>
+                        {/* <span className="font-bold">Youtube</span> */}
                     </a>
                 </li>
-                <li className="bg-mistyrose rounded ">
+                {/* <li className="bg-mistyrose rounded ">
                     <a href="#" className="flex gap-2 items-center mb-2 p-2">
                         <span className="font-bold">Hotline: 0986.666.666</span>
                     </a>
-                </li>
+                </li> */}
             </ul>
         </div>
     )

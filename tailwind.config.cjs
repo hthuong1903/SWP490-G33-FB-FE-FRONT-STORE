@@ -15,6 +15,9 @@ module.exports = {
             },
             borderRadius: {
                 DEFAULT: '15px'
+            },
+            zIndex: {
+                100: '100'
             }
         }
     },

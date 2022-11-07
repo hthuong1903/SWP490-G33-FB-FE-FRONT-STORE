@@ -1,6 +1,19 @@
-function CardItem() {
+import clsx from 'clsx'
+function CardItem({ cols = '4', gapX = '6', gapY = '10', mt = '7' }) {
     return (
-        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 mt-7 pb-10">
+        <div
+            className={clsx(
+                'grid',
+                'grid-cols-1',
+                `gap-y-${gapY}`,
+                `gap-x-${gapX}`,
+                'sm:grid-cols-2',
+                'lg:grid-cols-3',
+                `xl:grid-cols-${cols}`,
+                'xl:gap-x-8',
+                `mt-${mt}`,
+                'pb-10'
+            )}>
             <a
                 href="#"
                 className="group bg-cultured rounded-b rounded-t drop-shadow-md flex flex-col justify-between hover:drop-shadow-xl hover:scale-105 ease-in-out duration-300">

@@ -1,8 +1,8 @@
 import logo from '@/assets/img/logo.png'
 import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import PhoneIcon from '@mui/icons-material/Phone'
-import SearchIcon from '@mui/icons-material/Search'
-import { Avatar, Button, Container, InputAdornment, TextField } from '@mui/material'
+import { Avatar, Button, Container } from '@mui/material'
+import SearchInput from '../SearchInput'
 
 function Header() {
     return (
@@ -42,18 +42,7 @@ function Header() {
                     </div>
 
                     <div>
-                        <TextField
-                            size="small"
-                            className="bg-white rounded-none w-96"
-                            placeholder="Tìm kiếm sản phẩm..."
-                            InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                        <SearchIcon />
-                                    </InputAdornment>
-                                )
-                            }}
-                        />
+                        <SearchInput />
                     </div>
                     <div className="flex gap-3 justify-end">
                         <div className="flex items-center gap-2">
