@@ -2,6 +2,7 @@ import { Container, Divider } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { useEffect, useState } from 'react'
 import productApi from '@/api/productApi'
+import { Link } from 'react-router-dom'
 
 function Categories() {
     const [categoryList, setCategoryList] = useState([])
@@ -30,9 +31,9 @@ function Categories() {
                 <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 mt-7 pb-7">
                     {categoryList.map((category) => {
                         return (
-                            <a
+                            <Link
                                 key={category.id}
-                                href="#"
+                                to={`/products/${category.id}`}
                                 className="group bg-cultured rounded-b drop-shadow-md rounded-t">
                                 <div className="aspect-square w-full overflow-hidden rounded-t bg-gray-200">
                                     <img
@@ -44,7 +45,7 @@ function Categories() {
                                 <h3 className="p-2 pl-3 text-lg font-medium text-gray-900">
                                     {category.name} ({category.quantity})
                                 </h3>
-                            </a>
+                            </Link>
                         )
                     })}
                 </div>
