@@ -18,15 +18,13 @@ function SearchInput() {
         const price_to = searchParams.get('price_to') || 100000
         const wood_type = searchParams.getAll('wood_type')
 
-        if (debouncedSearchTerm) {
-            setSearchParams({
-                price_from: price_from,
-                price_to: price_to,
-                search: debouncedSearchTerm,
-                wood_type: wood_type
-            })
-            console.log('debound', debouncedSearchTerm)
-        }
+        setSearchParams({
+            price_from: price_from,
+            price_to: price_to,
+            search: debouncedSearchTerm,
+            wood_type: wood_type
+        })
+        console.log('debound', debouncedSearchTerm)
     }, [debouncedSearchTerm])
     return (
         <TextField
