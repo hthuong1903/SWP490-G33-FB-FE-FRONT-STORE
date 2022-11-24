@@ -70,7 +70,7 @@ function Banner() {
                         </div>
                         <div className="group/cart hover:bg-ming hover:text-white ml-auto rounded transition ease-in-out duration-400">
                             <Link
-                                to="/"
+                                to="/cart"
                                 className="font-semibold py-2 px-4 inline-flex items-center gap-2">
                                 <ShoppingCartOutlinedIcon className="origin-bottom group-hover/cart:-rotate-6 group-hover/cart:translate-x-2 transition-transform" />
                                 Giỏ hàng (123)

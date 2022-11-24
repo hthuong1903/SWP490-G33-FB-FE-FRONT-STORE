@@ -4,17 +4,17 @@ import { BASE_URL } from "@/constraint"
 
 
 const productApi = {
-    getAllProductByFilter:(payload)=>{
+    getAllProductByFilter: (payload) => {
         const url = `${BASE_URL}/products/paging/by_category_filter`
         return axios.post(url, payload)
     },
 
-    getAllProduct:()=>{
-        const url =`${BASE_URL}/products`
+    getAllProduct: () => {
+        const url = `${BASE_URL}/products`
         return axios.get(url)
     },
 
-    getAllCategory:()=>{
+    getAllCategory: () => {
         const url = `${BASE_URL}/categorys`
         return axios.get(url)
     }
