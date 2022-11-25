@@ -12,12 +12,12 @@ function Header() {
                     <div className="flex justify-between p-1">
                         <div>Nội thất ABC - Xưởng đồ gỗ</div>
                         <nav className="flex gap-3">
-                            <a href="">Giới thiệu</a>
-                            <a href="">Chính sách bán hàng</a>
-                            <a href="">Vận chuyển</a>
-                            <a href="">Thanh toán</a>
-                            <a href="">Hướng dẫn mua hàng</a>
-                            <a href="">Liên hệ</a>
+                            <a href="/introduce">Giới thiệu</a>
+                            <a href="/salePolicy">Chính sách bán hàng</a>
+                            <a href="/shippingPolicy">Vận chuyển</a>
+                            <a href="/paymentInfo">Thanh toán</a>
+                            <a href="/guide">Hướng dẫn mua hàng</a>
+                            <a href="/contract">Liên hệ</a>
                         </nav>
                     </div>
                 </Container>

@@ -34,22 +34,22 @@ function Footer() {
                         <h4 className="text-xl font-bold">Hỗ trợ khách hàng</h4>
                         <p>
                             {' '}
-                            <a href="#">Giới thiệu</a>
+                            <a href="/introduce">Giới thiệu</a>
                         </p>
                         <p>
-                            <a href="#">Chính sách bán hàng</a>
+                            <a href="/salePolicy">Chính sách bán hàng</a>
                         </p>
                         <p>
-                            <a href="#">Chính sách vận chuyển</a>
+                            <a href="/shippingPolicy">Chính sách vận chuyển</a>
                         </p>
                         <p>
-                            <a href="#">Thông tin thanh toán</a>
+                            <a href="/paymentInfo">Thông tin thanh toán</a>
                         </p>
                         <p>
-                            <a href="#">Hướng dẫn mua hàng</a>
+                            <a href="/guide">Hướng dẫn mua hàng</a>
                         </p>
                         <p>
-                            <a href="#">Liên hệ</a>
+                            <a href="/contract">Liên hệ</a>
                         </p>
                         <p>
                             <a href="#">Kênh youtube</a>
@@ -60,12 +60,12 @@ function Footer() {
             <Divider />
             <div className="mt-2">
                 <div className="flex justify-center gap-5 text-md">
-                    <Link to="/">Giới thiệu</Link>
-                    <Link to="/">Chính sách bán hàng</Link>
-                    <Link to="/">Vận chuyển</Link>
-                    <Link to="/">Thanh toán</Link>
-                    <Link to="/">Hướng dẫn mua hàng</Link>
-                    <Link to="/">Liên hệ</Link>
+                    <Link to="/introduce">Giới thiệu</Link>
+                    <Link to="/salePolicy">Chính sách bán hàng</Link>
+                    <Link to="/shippingPolicy">Vận chuyển</Link>
+                    <Link to="/paymentInfo">Thanh toán</Link>
+                    <Link to="/guide">Hướng dẫn mua hàng</Link>
+                    <Link to="/contract">Liên hệ</Link>
                 </div>
                 <div className='text-center pb-3'>Copyright 2022 by Đồ gỗ ABC</div>
             </div>

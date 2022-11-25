@@ -47,17 +47,17 @@ function Banner() {
                         </div>
                         <div className="ml-4">
                             <Link
-                                to="/"
+                                to="/introduce"
                                 className="font-semibold py-2 px-4 rounded inline-flex items-center mr-4 hover:bg-ming hover:text-white transition ease-in-out duration-400">
                                 Giới thiệu
                             </Link>
                             <Link
-                                to="/"
+                                to="/guide"
                                 className="font-semibold py-2 px-4 rounded inline-flex items-center mr-4 hover:bg-ming hover:text-white transition ease-in-out duration-400">
                                 Hướng dẫn mua hàng
                             </Link>
                             <Link
-                                to="/"
+                                to="/contract"
                                 className="font-semibold py-2 px-4 rounded inline-flex items-center mr-4 hover:bg-ming hover:text-white transition ease-in-out duration-400">
                                 Liên hệ
                             </Link>
