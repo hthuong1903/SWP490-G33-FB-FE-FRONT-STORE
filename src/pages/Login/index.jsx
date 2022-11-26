@@ -14,12 +14,13 @@ function LoginPage() {
     const [isLoading, setIsLoading] = useState(false)
     let navigate = useNavigate()
     const location = useLocation()
-    const { setAuth } = useAuth()
+    const { auth, setAuth } = useAuth()
     const schema = yup.object().shape({
         username: yup.string().required('Không được bỏ trống'),
         password: yup.string().required('Không được bỏ trống')
     })
 
+    console.log('login', location)
     const {
         register,
         handleSubmit,
@@ -41,16 +42,17 @@ function LoginPage() {
             const pwd = JSON.parse(localStorage.getItem('fbm-user')).pwd
             const roles = [JSON.parse(localStorage.getItem('fbm-user')).roles[0].authority]
             const accessToken = JSON.parse(localStorage.getItem('fbm-user')).token
-            console.log(roles)
 
             setAuth({ username, pwd, roles, accessToken, name })
+            console.log('login', auth)
             setIsLoading(false)
 
             if (roles[0] === 'CUSTOMER') {
-                navigate('/')
-                toast.success('Đăng nhập thành công!')
                 if (location.state) {
-                    console.log(location.state)
+                    navigate(location.state.from.pathname)
+                } else {
+                    navigate('/')
+                    toast.success('Đăng nhập thành công!')
                 }
             } else {
                 toast.error('Sai thông tin đăng nhập!')
@@ -64,16 +66,16 @@ function LoginPage() {
         }
     }
 
-    useEffect(() => {
-        if (location.state) {
-            if (location.state.from.pathname === '/cart') {
-                toast('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!', {
-                    icon: '🛒',
-                    id: 'login-fromcart'
-                })
-            }
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (location.state) {
+    //         if (location.state.from.pathname === '/cart') {
+    //             toast('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!', {
+    //                 icon: '🛒',
+    //                 id: 'login-fromcart'
+    //             })
+    //         }
+    //     }
+    // }, [])
 
     return (
         <div className="w-screen h-screen flex items-center justify-center bg-ming">

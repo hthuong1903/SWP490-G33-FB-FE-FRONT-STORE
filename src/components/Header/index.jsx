@@ -13,7 +13,6 @@ function Header() {
     const [isOpenConfirmDialog, setIsOpenConfirmDialog] = useState(false)
     let navigate = useNavigate()
     const { auth, setAuth } = useAuth()
-    console.log('v', auth)
 
     return (
         <div>

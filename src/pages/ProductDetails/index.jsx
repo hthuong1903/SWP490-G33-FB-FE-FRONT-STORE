@@ -6,7 +6,7 @@ import { Add, Remove } from '@mui/icons-material'
 import { Box, Button, IconButton, TextField, Typography } from '@mui/material'
 import { Container } from '@mui/system'
 import { useContext, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import ThumbGalerry from './components/ThumbGalerry'
 import toast from 'react-hot-toast'
 
@@ -19,6 +19,8 @@ function ProductDetails() {
     const [quantity, setQuantity] = useState(1)
     let { productId } = useParams()
     const navigate = useNavigate()
+
+    let location = useLocation()
 
     const userId = JSON.parse(localStorage.getItem('fbm-user'))
         ? JSON.parse(localStorage.getItem('fbm-user')).userId
@@ -39,7 +41,11 @@ function ProductDetails() {
         if (userId) {
             addToCart({ quantity, productId, userId })
         } else {
-            navigate('../login')
+            toast('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!', {
+                icon: '🛒',
+                id: 'login-fromcart'
+            })
+            navigate('../login', { state: { from: location } })
         }
     }
 
@@ -84,7 +90,7 @@ function ProductDetails() {
                                 <div className="text-2xl font-bold">{product?.name}</div>
                                 <div className="">Danh mục: {product?.category.name}</div>
                                 <div className="">Mã sản phẩm: {product?.productCode}</div>
-                                <div className="">Chất liệu:{product?.material}</div>
+                                <div className="">Chất liệu: {product?.material}</div>
                                 <div className="">Mô tả: {product?.description}</div>
                             </div>
                             <div className="mb-5">

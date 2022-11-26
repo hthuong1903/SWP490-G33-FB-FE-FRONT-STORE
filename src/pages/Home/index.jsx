@@ -27,7 +27,6 @@ export default function Home() {
             try {
                 const response = await productApi.getAllCategory()
                 setCategoryList(response.data.data)
-                console.log('all category', response)
             } catch (error) {
                 console.log('fail at getAllCategory', error)
             }

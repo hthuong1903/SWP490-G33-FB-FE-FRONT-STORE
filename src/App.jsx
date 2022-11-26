@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import CartLayout from './assets/layout/CartLayout'
 import EmptyLayout from './assets/layout/EmptyLayout'
 import MainLayout from './assets/layout/MainLayout'
@@ -21,7 +21,10 @@ import ProductDetails from './pages/ProductDetails'
 import Registor from './pages/Register'
 import ConfirmEmailCode from './pages/Register/components/ConfirmEmailCode'
 function App() {
-    const { auth, setAuth } = useAuth()
+    const { setAuth } = useAuth()
+    let { pathname } = useLocation()
+    let navigate = useNavigate()
+    console.log('pathname', pathname)
     const userAuthen = JSON.parse(localStorage.getItem('fbm-user'))
 
     useEffect(() => {
@@ -31,9 +34,12 @@ function App() {
             const name = userAuthen.name
             const roles = [userAuthen.roles[0].authority]
             const accessToken = userAuthen.token
+
+            console.log('ok')
+
             setAuth({ username, pwd, roles, accessToken, name })
+            navigate(pathname)
         }
-        console.log(auth)
     }, [])
     return (
         <div className="App">
@@ -49,12 +55,14 @@ function App() {
                     <Route path="salePolicy" element={<SalePolicy />} />
                     <Route path="shippingPolicy" element={<ShippingPolicy />} />
                 </Route>
+
                 <Route element={<RequireAuth allowedRoles={[ROLES.CUSTOMER]} />}>
                     <Route path="/cart/" element={<CartLayout />}>
                         <Route index element={<DetailCarts />} />
                         <Route path="create" element={<CreateCarts />} />
                     </Route>
                 </Route>
+
                 <Route element={<EmptyLayout />}>
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/registor" element={<Registor />} />

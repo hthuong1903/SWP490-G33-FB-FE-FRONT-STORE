@@ -6,7 +6,7 @@ function Feature() {
         <Container className="py-14">
             <div className="flex gap-10 justify-between">
                 <div className="flex flex-col items-center p-4 rounded cursor-pointer transition ease-in-out hover:scale-110 hover:bg-mistyrose hover:drop-shadow-lg select-none">
-                    <Avatar className="w-40 h-40" src="https://source.unsplash.com/random" />
+                    <Avatar className="w-40 h-40" src="https://xuongdogogiagoc.com/wp-content/uploads/2022/08/duc-tay.png" />
                     <div className="text-xl font-bold my-3">Nghệ nhân gỗ Việt</div>
                     <p className="text-center">
                         Nắm giữ nhiều bí quyết, kỹ năng chạm khắc trên gỗ vô cùng tinh xảo, sẽ tạo
@@ -14,7 +14,7 @@ function Feature() {
                     </p>
                 </div>
                 <div className="flex flex-col items-center p-4 rounded cursor-pointer transition ease-in-out hover:scale-110 hover:bg-mistyrose hover:drop-shadow-lg select-none">
-                    <Avatar className="w-40 h-40" src="https://source.unsplash.com/random" />
+                    <Avatar className="w-40 h-40" src="https://xuongdogogiagoc.com/wp-content/uploads/2022/08/xuong.png" />
                     <div className="text-xl font-bold my-3">Giá rẻ tận gốc</div>
                     <p className="text-center">
                         Chúng tôi là xưởng sản xuất không qua trung gian, sẽ mang đến cho bạn sản
@@ -22,7 +22,7 @@ function Feature() {
                     </p>
                 </div>
                 <div className="flex flex-col items-center p-4 rounded cursor-pointer transition ease-in-out hover:scale-110 hover:bg-mistyrose hover:drop-shadow-lg select-none">
-                    <Avatar className="w-40 h-40" src="https://source.unsplash.com/random" />
+                    <Avatar className="w-40 h-40" src="https://xuongdogogiagoc.com/wp-content/uploads/2022/08/hai-long.png" />
                     <div className="text-xl font-bold my-3">Đảm bảo tiến độ</div>
                     <p className="text-center">
                         Luôn hoàn thành sản phẩm đúng hẹn, chất lượng sản phẩm đúng với cam kết.
@@ -30,7 +30,7 @@ function Feature() {
                     </p>
                 </div>
                 <div className="flex flex-col items-center p-4 rounded cursor-pointer transition ease-in-out hover:scale-110 hover:bg-mistyrose hover:drop-shadow-lg select-none">
-                    <Avatar className="w-40 h-40" src="https://source.unsplash.com/random" />
+                    <Avatar className="w-40 h-40" src="https://xuongdogogiagoc.com/wp-content/uploads/2022/08/van-chuyen.png" />
                     <div className="text-xl font-bold my-3">Giao hàng toàn quốc</div>
                     <p className="text-center">
                         Vận chuyển và lắp đặt đồ nội thất tận nhà quý khách. Bạn được kiểm tra hàng

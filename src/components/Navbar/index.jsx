@@ -7,6 +7,7 @@ import clsx from 'clsx'
 import { useContext, useEffect, useState } from 'react'
 import { Context } from '@/contexts/Cart/contexts'
 import { Link, useLocation, useParams } from 'react-router-dom'
+import useAuth from '@/hooks/useAuth'
 
 function Banner() {
     const [state, dispatch] = useContext(Context)
@@ -14,12 +15,13 @@ function Banner() {
     const [numberCarts, setNumberCarts] = useState(0)
     let { categoryId } = useParams()
     let { pathname } = useLocation()
+    const { auth, setAuth } = useAuth()
 
     const userId = JSON.parse(localStorage.getItem('fbm-user'))
         ? JSON.parse(localStorage.getItem('fbm-user')).userId
         : null
 
-    console.log('render', state)
+    // console.log('render', auth)
     useEffect(() => {
         const getOrderById = async (userId) => {
             try {
@@ -36,7 +38,6 @@ function Banner() {
             try {
                 const response = await productApi.getAllCategory()
                 setCategoryList(response.data.data)
-                console.log('all category', response)
             } catch (error) {
                 console.log('fail at getAllCategory', error)
             }

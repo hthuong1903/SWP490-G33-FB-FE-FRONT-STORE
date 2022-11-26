@@ -127,25 +127,25 @@ export default function ThumbGalerry({ ...props }) {
                 <SwiperSlide>
                     <img
                         src={props.photoMainURl}
-                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                        onError={(e) => (e.target.src = PLACE_HOLDER_IMG)}
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img
                         src={props.photoOnceURL}
-                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                        onError={(e) => (e.target.src = PLACE_HOLDER_IMG)}
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img
                         src={props.photoSecondURL}
-                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                        onError={(e) => (e.target.src = PLACE_HOLDER_IMG)}
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img
                         src={props.photoThirdURL}
-                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                        onError={(e) => (e.target.src = PLACE_HOLDER_IMG)}
                     />
                 </SwiperSlide>
             </Swiper>
@@ -161,25 +161,25 @@ export default function ThumbGalerry({ ...props }) {
                 <SwiperSlide>
                     <img
                         src={props.photoMainURl}
-                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                        onError={(e) => (e.target.src = PLACE_HOLDER_IMG)}
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img
                         src={props.photoOnceURL}
-                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                        onError={(e) => (e.target.src = PLACE_HOLDER_IMG)}
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img
                         src={props.photoSecondURL}
-                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                        onError={(e) => (e.target.src = PLACE_HOLDER_IMG)}
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img
                         src={props.photoThirdURL}
-                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                        onError={(e) => (e.target.src = PLACE_HOLDER_IMG)}
                     />
                 </SwiperSlide>
             </Swiper>
