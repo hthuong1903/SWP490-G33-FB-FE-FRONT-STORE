@@ -129,7 +129,7 @@ function CreateCarts() {
     }
 
     return (
-        <Box sx={{ width: '80vw', m: '0 auto', backgroundColor: 'white', p: 1 }}>
+        <Box sx={{ width: '80vw', m: '0 auto', p: 1 }}>
             {checkedCustomer && (
                 <ModalChangeAddress
                     isOpen={checkedCustomer}
@@ -165,7 +165,7 @@ function CreateCarts() {
             {cartsDetail ? (
                 <Grid container spacing={2} minHeight="60vh">
                     <Grid item xs={3}>
-                        <Paper sx={{ p: 1, height: '100%', backgroundColor: '#e6e4e4' }}>
+                        <Box sx={{ p: 3, height: '100%' }} className="bg-white rounded">
                             <Typography variant="subtitle1">
                                 <b>THÔNG TIN KHÁCH HÀNG</b>
                             </Typography>
@@ -190,12 +190,13 @@ function CreateCarts() {
                                 }}>
                                 Thêm địa chỉ
                             </Button>
-                        </Paper>
+                        </Box>
                     </Grid>
                     <Grid item xs={3}>
                         <FormControl
-                            sx={{ width: '100%', p: 1, height: '100%', backgroundColor: '#e6e4e4' }}
-                            component={Paper}>
+                            sx={{ width: '100%', p: 3, height: '100%' }}
+                            component={Box}
+                            className="bg-white rounded">
                             <RadioGroup
                                 aria-labelledby="demo-radio-buttons-group-label"
                                 defaultValue="1"
@@ -218,9 +219,7 @@ function CreateCarts() {
                         </FormControl>
                     </Grid>
                     <Grid item xs={6}>
-                        <TableContainer
-                            component={Paper}
-                            sx={{ p: 1, height: '100%', backgroundColor: '#e6e4e4' }}>
+                        <TableContainer component={Box} sx={{ p: 3, height: '100%' }} className="bg-white rounded">
                             <Typography variant="subtitle1">
                                 <b>TỔNG QUAN ĐƠN HÀNG</b>
                             </Typography>

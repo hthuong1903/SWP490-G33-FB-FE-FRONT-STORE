@@ -1,7 +1,4 @@
-import logo from '@/assets/img/logo.png'
-import { Divider } from '@mui/material'
 import { Container } from '@mui/system'
-import { Link } from 'react-router-dom'
 export default function ContractInformation() {
     return (
         <div className='font-serif mt-6'>
@@ -23,12 +20,12 @@ export default function ContractInformation() {
                             0342322957(Zalo/FaceBook)
                         </strong>
                     </p>
-                    <ul class="marker:text-black-400 list-disc pl-5 space-y-3 mt-3">
+                    <ul className="marker:text-black-400 list-disc pl-5 space-y-3 mt-3">
                         <li>
-                            Fanpage chính thức: <a href="https://www.facebook.com/ntphamgia/" class="text-blue-600 visited:text-blue-600" target="_blank" rel="noopener noreferrer">https://www.facebook.com/ntphamgia</a>
+                            Fanpage chính thức: <a href="https://www.facebook.com/ntphamgia/" className="text-blue-600 visited:text-blue-600" target="_blank" rel="noopener noreferrer">https://www.facebook.com/ntphamgia</a>
                         </li>
                         <li>
-                            Website: <a href="https://www.facebook.com/ntphamgia/" class="text-blue-600 visited:text-blue-600" target="_blank" rel="noopener noreferrer">https://www.facebook.com/ntphamgia</a>
+                            Website: <a href="https://www.facebook.com/ntphamgia/" className="text-blue-600 visited:text-blue-600" target="_blank" rel="noopener noreferrer">https://www.facebook.com/ntphamgia</a>
                         </li>
                     </ul>
                 </div>

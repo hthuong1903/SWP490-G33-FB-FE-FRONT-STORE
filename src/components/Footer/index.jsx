@@ -30,29 +30,29 @@ function Footer() {
                         <p>Số tài khoản: 123456789</p>
                         <p>Chi nhánh: ABC</p>
                     </div>
-                    <div className=''>
+                    <div className="">
                         <h4 className="text-xl font-bold">Hỗ trợ khách hàng</h4>
                         <p>
                             {' '}
-                            <a href="/introduce">Giới thiệu</a>
+                            <Link to="/introduce">Giới thiệu</Link>
                         </p>
                         <p>
-                            <a href="/salePolicy">Chính sách bán hàng</a>
+                            <Link to="/salePolicy">Chính sách bán hàng</Link>
                         </p>
                         <p>
-                            <a href="/shippingPolicy">Chính sách vận chuyển</a>
+                            <Link to="/shippingPolicy">Chính sách vận chuyển</Link>
                         </p>
                         <p>
-                            <a href="/paymentInfo">Thông tin thanh toán</a>
+                            <Link to="/paymentInfo">Thông tin thanh toán</Link>
                         </p>
                         <p>
-                            <a href="/guide">Hướng dẫn mua hàng</a>
+                            <Link to="/guide">Hướng dẫn mua hàng</Link>
                         </p>
                         <p>
-                            <a href="/contract">Liên hệ</a>
+                            <Link to="/contract">Liên hệ</Link>
                         </p>
                         <p>
-                            <a href="#">Kênh youtube</a>
+                            <Link to="#">Kênh youtube</Link>
                         </p>
                     </div>
                 </div>
@@ -67,7 +67,7 @@ function Footer() {
                     <Link to="/guide">Hướng dẫn mua hàng</Link>
                     <Link to="/contract">Liên hệ</Link>
                 </div>
-                <div className='text-center pb-3'>Copyright 2022 by Đồ gỗ ABC</div>
+                <div className="text-center pb-3">Copyright 2022 by Đồ gỗ ABC</div>
             </div>
         </div>
     )
