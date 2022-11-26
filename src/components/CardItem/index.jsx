@@ -1,7 +1,9 @@
-function CardItem({ img, title, price, discount, afterDiscount }) {
+import { Link } from "react-router-dom"
+
+function CardItem({ img, title, price, discount, afterDiscount, productId }) {
     return (
-        <a
-            href="#"
+        <Link
+            to={`/products/details/${productId}`}
             className="group bg-cultured rounded-b rounded-t drop-shadow-md flex flex-col justify-between hover:drop-shadow-xl hover:scale-105 ease-in-out duration-300">
             <div className="">
                 <div className="aspect-square w-full overflow-hidden rounded-t bg-gray-200">
@@ -22,7 +24,7 @@ function CardItem({ img, title, price, discount, afterDiscount }) {
                 ) : null}
                 <h3 className="pb-3 pl-4 text-lg font-bold text-gray-900">{afterDiscount} VND</h3>
             </div>
-        </a>
+        </Link>
     )
 }
 

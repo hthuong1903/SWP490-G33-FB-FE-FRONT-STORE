@@ -68,6 +68,7 @@ export default function Home() {
                                 {filterProduct(category.id).map((product) => {
                                     return (
                                         <CardItem
+                                            productId={product.id}
                                             key={product.id}
                                             title={product.name}
                                             img={product.photoMainURl}

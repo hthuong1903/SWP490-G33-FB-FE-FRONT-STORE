@@ -1,6 +1,9 @@
 import React from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
+import bannerImg1 from '@/assets/img/b1.jpg'
+import bannerImg2 from '@/assets/img/b2.jpg'
+import bannerImg3 from '@/assets/img/b3.jpg'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -25,7 +28,7 @@ function Carousel() {
     return (
         <Container>
             <Swiper
-                slidesPerView={3}
+                slidesPerView={1}
                 spaceBetween={20}
                 slidesPerGroup={3}
                 loop={true}
@@ -40,22 +43,13 @@ function Carousel() {
                     '--swiper-navigation-size': '20px'
                 }}>
                 <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" alt="" />
+                    <img src={bannerImg1} alt="banner1" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" alt="" />
+                    <img src={bannerImg2} alt="banner2" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" alt="" />
+                    <img src={bannerImg3} alt="banner3" />
                 </SwiperSlide>
             </Swiper>
         </Container>

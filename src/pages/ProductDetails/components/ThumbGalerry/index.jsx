@@ -1,6 +1,7 @@
-import styled from 'styled-components'
 import { useState } from 'react'
+import styled from 'styled-components'
 // Import Swiper React components
+import PLACE_HOLDER_IMG from '@/assets/img/placeholder.png'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
@@ -91,15 +92,15 @@ const Styled = styled.div`
     .swiper-button-next:after,
     .swiper-button-prev:after {
         font-size: 1rem;
-        font-weight:bold
+        font-weight: bold;
     }
     .swiper-button-next,
     .swiper-button-prev {
         background-color: white;
         background-color: rgba(255, 255, 255, 0.5);
         /* right: 10px; */
-        height:20px;
-        width:20px;
+        height: 20px;
+        width: 20px;
         color: #000 !important;
         fill: black !important;
         stroke: black !important;
@@ -107,7 +108,7 @@ const Styled = styled.div`
     }
 `
 
-export default function ThumbGalerry() {
+export default function ThumbGalerry({ ...props }) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null)
 
     return (
@@ -124,22 +125,28 @@ export default function ThumbGalerry() {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper2">
                 <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" />
+                    <img
+                        src={props.photoMainURl}
+                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" />
+                    <img
+                        src={props.photoOnceURL}
+                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" />
+                    <img
+                        src={props.photoSecondURL}
+                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" />
+                    <img
+                        src={props.photoThirdURL}
+                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                    />
                 </SwiperSlide>
             </Swiper>
             <Swiper
@@ -152,22 +159,28 @@ export default function ThumbGalerry() {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper">
                 <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" />
+                    <img
+                        src={props.photoMainURl}
+                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" />
+                    <img
+                        src={props.photoOnceURL}
+                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" />
+                    <img
+                        src={props.photoSecondURL}
+                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://source.unsplash.com/random" />
+                    <img
+                        src={props.photoThirdURL}
+                        onError={(e) => console.log((e.target.src = PLACE_HOLDER_IMG))}
+                    />
                 </SwiperSlide>
             </Swiper>
         </Styled>

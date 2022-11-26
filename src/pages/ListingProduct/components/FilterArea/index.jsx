@@ -13,7 +13,7 @@ const woodTypes = [
 ]
 
 function FilterArea() {
-    const [value, setValue] = useState([3000000, 7000000])
+    const [value, setValue] = useState([1000000, 10000000])
     const [isChecked, setIsChecked] = useState([])
     const [searchParams, setSearchParams] = useSearchParams()
     let { categoryId } = useParams()
