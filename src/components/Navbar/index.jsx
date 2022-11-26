@@ -1,3 +1,4 @@
+import orderApi from '@/api/orderApi'
 import productApi from '@/api/productApi'
 import MenuIcon from '@mui/icons-material/Menu'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
@@ -8,9 +9,21 @@ import { Link, useParams } from 'react-router-dom'
 
 function Banner() {
     const [categoryList, setCategoryList] = useState([])
+    const [numberCarts, setNumberCarts] = useState(0)
     let { categoryId } = useParams()
+    const userId = 3
 
     useEffect(() => {
+        const getOrderById = async (userId) => {
+            try {
+                const response = await orderApi.getOrdersByCustomer(userId)
+                if (response.data.data.length > 0) {
+                    setNumberCarts(response.data.data[0].orderProductDtos?.length)
+                }
+            } catch (error) {
+                console.log('fail when getAllProduct', error)
+            }
+        }
         const getAllCategory = async () => {
             try {
                 const response = await productApi.getAllCategory()
@@ -21,6 +34,7 @@ function Banner() {
             }
         }
         getAllCategory()
+        getOrderById(userId)
     }, [])
 
     return (
@@ -89,7 +103,7 @@ function Banner() {
                                 to="/cart"
                                 className="font-semibold py-2 px-4 inline-flex items-center gap-2">
                                 <ShoppingCartOutlinedIcon className="origin-bottom group-hover/cart:-rotate-6 group-hover/cart:translate-x-2 transition-transform" />
-                                Giỏ hàng (123)
+                                Giỏ hàng {numberCarts > 0 ? '(' + numberCarts + ')' : null}
                             </Link>
                         </div>
                     </div>

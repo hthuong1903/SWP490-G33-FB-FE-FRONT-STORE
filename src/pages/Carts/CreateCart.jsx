@@ -55,9 +55,10 @@ function CreateCarts() {
         const getOrderById = async (userId) => {
             try {
                 const response = await orderApi.getOrdersByCustomer(userId)
-                console.log(response.data.data[0])
-                setCartsDetail(response.data.data[0])
-                setRows(response.data.data[0].orderProductDtos)
+                if (response.data.data.length > 0) {
+                    setCartsDetail(response.data.data[0])
+                    setRows(response.data.data[0].orderProductDtos)
+                }
             } catch (error) {
                 console.log('fail when getAllProduct', error)
             }
@@ -158,7 +159,7 @@ function CreateCarts() {
                     của bạn
                 </Typography>
             </Box>
-            {cartsDetail && (
+            {cartsDetail ? (
                 <Grid container spacing={2} minHeight="60vh">
                     <Grid item xs={3}>
                         <Paper sx={{ p: 1, height: '100%', backgroundColor: '#e6e4e4' }}>
@@ -330,6 +331,19 @@ function CreateCarts() {
                         </TableContainer>
                     </Grid>
                 </Grid>
+            ) : (
+                <Box
+                    sx={{
+                        mt: 2,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        flexDirection: 'column'
+                    }}>
+                    <Typography variant="body1">
+                        Bạn chưa có sản phẩm nào trong giỏ hàng!
+                    </Typography>
+                </Box>
             )}
         </Box>
     )
