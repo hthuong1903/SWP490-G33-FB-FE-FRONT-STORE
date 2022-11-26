@@ -2,6 +2,7 @@ import logo from '@/assets/img/logo.png'
 import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import PhoneIcon from '@mui/icons-material/Phone'
 import { Avatar, Button, Container } from '@mui/material'
+import { Link } from 'react-router-dom'
 import SearchInput from '../SearchInput'
 
 function Header() {
@@ -10,7 +11,7 @@ function Header() {
             <div className="bg-white text-sm">
                 <Container>
                     <div className="flex justify-between p-1">
-                        <div>Nội thất ABC - Xưởng đồ gỗ</div>
+                        <Link to="/">Nội thất ABC - Xưởng đồ gỗ</Link>
                         <nav className="flex gap-3">
                             <a href="/introduce">Giới thiệu</a>
                             <a href="/salePolicy">Chính sách bán hàng</a>
@@ -26,7 +27,9 @@ function Header() {
                 <Container className="grid grid-cols-3 mt-3 mb-3 items-center">
                     <div className="logo flex items-center gap-3">
                         {/* <FacebookTwoToneIcon className="text-8xl" color="primary" /> */}
-                        <img src={logo} alt="logo" className="w-3/12" />
+                        <Link to="/" className="w-3/12">
+                            <img src={logo} alt="logo" />
+                        </Link>
                         <div>
                             <div className="flex items-center gap-1">
                                 <MailOutlineIcon className="text-base" color="primary" />

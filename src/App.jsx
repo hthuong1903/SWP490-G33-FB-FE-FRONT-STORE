@@ -1,10 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
 import CartLayout from './assets/layout/CartLayout'
+import EmptyLayout from './assets/layout/EmptyLayout'
 import MainLayout from './assets/layout/MainLayout'
 import CreateCarts from './pages/Carts/CreateCart'
 import DetailCarts from './pages/Carts/DetailCart'
 import Home from './pages/Home'
 import ListingProduct from './pages/ListingProduct'
+import LoginPage from './pages/Login'
 import ProductDetails from './pages/ProductDetails'
 import ContractInformation from './pages/InformationDetail/Contract'
 import ShoppingGuide from './pages/InformationDetail/Guide'
@@ -30,6 +32,9 @@ function App() {
                 <Route path="/cart/" element={<CartLayout />}>
                     <Route index element={<DetailCarts />} />
                     <Route path="create" element={<CreateCarts />} />
+                </Route>
+                <Route path="/login" element={<EmptyLayout />}>
+                    <Route index element={<LoginPage />} />
                 </Route>
             </Routes>
         </div>

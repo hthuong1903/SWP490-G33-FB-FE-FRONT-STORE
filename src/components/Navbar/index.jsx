@@ -2,11 +2,13 @@ import productApi from '@/api/productApi'
 import MenuIcon from '@mui/icons-material/Menu'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import { Container } from '@mui/system'
+import clsx from 'clsx'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 function Banner() {
     const [categoryList, setCategoryList] = useState([])
+    let { categoryId } = useParams()
 
     useEffect(() => {
         const getAllCategory = async () => {
@@ -37,15 +39,29 @@ function Banner() {
                                     <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                                 </svg>
                             </button>
-                            <ul className="rounded absolute hidden text-gray-700 pt-1 group-hover:block z-[100] w-72">
+                            <ul className="rounded absolute hidden text-gray-700 pt-1 group-hover:block z-[100] w-72 drop-shadow-lg">
                                 {categoryList.map((category) => {
                                     return (
-                                        <li className="" key={category.id}>
-                                            <a
-                                                className=" bg-white hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                                                href="#">
+                                        <li key={category.id}>
+                                            <Link
+                                                // className=" bg-white py-2 px-4 block whitespace-no-wrap pointer-events-none"
+                                                className={clsx(
+                                                    'bg-white',
+                                                    'py-2',
+                                                    'px-4',
+                                                    'block',
+                                                    'whitespace-no-wrap',
+                                                    Number(categoryId) === category.id
+                                                        ? 'bg-gray-300'
+                                                        : 'null',
+                                                    Number(categoryId) === category.id
+                                                        ? 'pointer-events-none'
+                                                        : null,
+                                                    'hover:bg-gray-300'
+                                                )}
+                                                to={`/products/${category.id}`}>
                                                 {category.name}
-                                            </a>
+                                            </Link>
                                         </li>
                                     )
                                 })}
