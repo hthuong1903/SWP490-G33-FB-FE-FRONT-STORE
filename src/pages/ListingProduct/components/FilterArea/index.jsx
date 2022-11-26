@@ -1,11 +1,9 @@
+import useDebounce from '@/hooks/useDebounce'
 import { Checkbox, FormControl, FormControlLabel, FormGroup, Slider } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { useSearchParams } from 'react-router-dom'
 
-// function valuetext(value) {
-//     return `${value}°C`
-// }
 const woodTypes = [
     { label: 'Gu', value: 1 },
     { label: 'Cam', value: 2 },
@@ -18,6 +16,8 @@ function FilterArea() {
     const [value, setValue] = useState([3000000, 7000000])
     const [isChecked, setIsChecked] = useState([])
     const [searchParams, setSearchParams] = useSearchParams()
+
+    const debouncedRangeTerm = useDebounce(value, 600)
 
     const handleChange = (event, newValue) => {
         setValue(newValue)
@@ -35,12 +35,21 @@ function FilterArea() {
 
     useEffect(() => {
         setSearchParams({
-            price_from: value[0],
-            price_to: value[1],
+            price_from: searchParams.get('price_from'),
+            price_to: searchParams.get('price_to'),
             wood_type: isChecked,
-            search: searchParams.get('search')
+            ...(searchParams.get('search') ? searchParams.get('search') : null)
         })
     }, [value, isChecked])
+
+    useEffect(() => {
+        setSearchParams({
+            price_from: value[0],
+            price_to: value[1],
+            wood_type: searchParams.getAll('wood_type'),
+            ...(searchParams.get('search') ? searchParams.get('search') : null)
+        })
+    }, [debouncedRangeTerm])
 
     return (
         <div className="bg-white w-full sticky top-3 rounded p-4 z-50">
@@ -62,24 +71,6 @@ function FilterArea() {
             </div>
             <div>
                 <div className="font-bold mt-5 text-lg">Loại gỗ</div>
-                {/* {woodTypes.map((checkbox, index) => {
-                    return (
-                        <FormControlLabel
-                            key={index + checkbox.value}
-                            className="twocolelement"
-                            control={
-                                <Checkbox
-                                    name={checkbox.label}
-                                    value={checkbox.value}
-                                    checked={isChecked[index]}
-                                    color="primary"
-                                    onChange={(e) => isCheckboxChecked(index, e.target.value)}
-                                />
-                            }
-                            label={checkbox.name}
-                        />
-                    )
-                })} */}
                 <FormControl component="div">
                     <FormGroup sx={{ flexDirection: 'row' }}>
                         <Controller
@@ -133,8 +124,6 @@ function FilterArea() {
                             )}
                         />
                     </FormGroup>
-                    {/* error={errors.maxQuantityComitee ? true : false}
-                                helperText={errors.maxQuantityComitee?.message} */}
                 </FormControl>
             </div>
         </div>

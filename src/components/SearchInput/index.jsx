@@ -22,10 +22,13 @@ function SearchInput() {
             setSearchParams({
                 price_from: price_from,
                 price_to: price_to,
-                search: debouncedSearchTerm,
-                wood_type: wood_type
+                wood_type: wood_type,
+                search: debouncedSearchTerm
             })
             console.log('debound', debouncedSearchTerm)
+        } else if (debouncedSearchTerm === '') {
+            searchParams.delete('search')
+            setSearchParams(searchParams)
         }
     }, [debouncedSearchTerm])
     return (

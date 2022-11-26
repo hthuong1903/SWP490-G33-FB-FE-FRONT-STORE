@@ -5,36 +5,36 @@ function Feature() {
     return (
         <Container className="py-14">
             <div className="flex gap-10 justify-between">
-                <div className="flex flex-col items-center p-4 rounded cursor-pointer transition ease-in-out hover:scale-110 hover:bg-white hover:drop-shadow-lg select-none">
+                <div className="flex flex-col items-center p-4 rounded cursor-pointer transition ease-in-out hover:scale-110 hover:bg-mistyrose hover:drop-shadow-lg select-none">
                     <Avatar className="w-40 h-40" src="https://source.unsplash.com/random" />
-                    <div className="text-xl font-bold my-3">Le Anh Tuan</div>
+                    <div className="text-xl font-bold my-3">Nghệ nhân gỗ Việt</div>
                     <p className="text-center">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum illum quaerat
-                        maxime. Earum sint reprehenderit omnis asperiores deserunt cum
+                        Nắm giữ nhiều bí quyết, kỹ năng chạm khắc trên gỗ vô cùng tinh xảo, sẽ tạo
+                        nên những tác phẩm đồ gỗ mỹ nghệ đẳng cấp!
                     </p>
                 </div>
-                <div className="flex flex-col items-center p-4 rounded cursor-pointer transition ease-in-out hover:scale-110 hover:bg-blue-300 hover:drop-shadow-lg select-none">
+                <div className="flex flex-col items-center p-4 rounded cursor-pointer transition ease-in-out hover:scale-110 hover:bg-mistyrose hover:drop-shadow-lg select-none">
                     <Avatar className="w-40 h-40" src="https://source.unsplash.com/random" />
-                    <div className="text-xl font-bold my-3">Le Anh Tuan</div>
+                    <div className="text-xl font-bold my-3">Giá rẻ tận gốc</div>
                     <p className="text-center">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum illum quaerat
-                        maxime. Earum sint reprehenderit omnis asperiores deserunt cum
+                        Chúng tôi là xưởng sản xuất không qua trung gian, sẽ mang đến cho bạn sản
+                        phẩm đồ gỗ nội thất tốt nhất với giá tranh nhất thị trường!
                     </p>
                 </div>
-                <div className="flex flex-col items-center p-4 rounded cursor-pointer transition ease-in-out hover:scale-110 hover:bg-blue-300 hover:drop-shadow-lg select-none">
+                <div className="flex flex-col items-center p-4 rounded cursor-pointer transition ease-in-out hover:scale-110 hover:bg-mistyrose hover:drop-shadow-lg select-none">
                     <Avatar className="w-40 h-40" src="https://source.unsplash.com/random" />
-                    <div className="text-xl font-bold my-3">Le Anh Tuan</div>
+                    <div className="text-xl font-bold my-3">Đảm bảo tiến độ</div>
                     <p className="text-center">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum illum quaerat
-                        maxime. Earum sint reprehenderit omnis asperiores deserunt cum
+                        Luôn hoàn thành sản phẩm đúng hẹn, chất lượng sản phẩm đúng với cam kết.
+                        Khách hàng không hài lòng có thể trả lại hàng!
                     </p>
                 </div>
-                <div className="flex flex-col items-center p-4 rounded cursor-pointer transition ease-in-out hover:scale-110 hover:bg-blue-300 hover:drop-shadow-lg select-none">
+                <div className="flex flex-col items-center p-4 rounded cursor-pointer transition ease-in-out hover:scale-110 hover:bg-mistyrose hover:drop-shadow-lg select-none">
                     <Avatar className="w-40 h-40" src="https://source.unsplash.com/random" />
-                    <div className="text-xl font-bold my-3">Le Anh Tuan</div>
+                    <div className="text-xl font-bold my-3">Giao hàng toàn quốc</div>
                     <p className="text-center">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum illum quaerat
-                        maxime. Earum sint reprehenderit omnis asperiores deserunt cum
+                        Vận chuyển và lắp đặt đồ nội thất tận nhà quý khách. Bạn được kiểm tra hàng
+                        và hoàn toàn hài lòng về sản phẩm mới phải thanh toán!
                     </p>
                 </div>
             </div>
