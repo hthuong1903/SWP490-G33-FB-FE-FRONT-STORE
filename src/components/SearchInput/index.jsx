@@ -1,6 +1,6 @@
 import { InputAdornment, TextField } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
-import { useSearchParams } from 'react-router-dom'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import useDebounce from '@/hooks/useDebounce'
 import { useEffect, useState } from 'react'
 
@@ -8,10 +8,14 @@ function SearchInput() {
     const [searchParams, setSearchParams] = useSearchParams('')
     const [searchValue, setSearchValue] = useState()
     const debouncedSearchTerm = useDebounce(searchValue, 600)
+    const { pathname } = useLocation()
+    const navigate = useNavigate()
 
     const handleOnchangeSearch = (value) => {
         setSearchValue(value)
     }
+
+    // console.log()
 
     useEffect(() => {
         const price_from = searchParams.get('price_from') || 100000
@@ -25,6 +29,9 @@ function SearchInput() {
                 wood_type: wood_type,
                 search: debouncedSearchTerm
             })
+            if (pathname === '/') {
+                navigate('/products/all')
+            }
             console.log('debound', debouncedSearchTerm)
         } else if (debouncedSearchTerm === '') {
             searchParams.delete('search')

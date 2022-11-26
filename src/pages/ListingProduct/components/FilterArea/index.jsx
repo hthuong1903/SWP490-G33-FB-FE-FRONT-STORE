@@ -2,7 +2,7 @@ import useDebounce from '@/hooks/useDebounce'
 import { Checkbox, FormControl, FormControlLabel, FormGroup, Slider } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import { useSearchParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 
 const woodTypes = [
     { label: 'Gu', value: 1 },
@@ -16,6 +16,7 @@ function FilterArea() {
     const [value, setValue] = useState([3000000, 7000000])
     const [isChecked, setIsChecked] = useState([])
     const [searchParams, setSearchParams] = useSearchParams()
+    let { categoryId } = useParams()
 
     const debouncedRangeTerm = useDebounce(value, 600)
 
@@ -38,18 +39,18 @@ function FilterArea() {
             price_from: searchParams.get('price_from'),
             price_to: searchParams.get('price_to'),
             wood_type: isChecked,
-            ...(searchParams.get('search') ? searchParams.get('search') : null)
+            ...(searchParams.get('search') ? { search: searchParams.get('search') } : null)
         })
-    }, [value, isChecked])
+    }, [value, isChecked, categoryId])
 
     useEffect(() => {
         setSearchParams({
             price_from: value[0],
             price_to: value[1],
             wood_type: searchParams.getAll('wood_type'),
-            ...(searchParams.get('search') ? searchParams.get('search') : null)
+            ...(searchParams.get('search') ? { search: searchParams.get('search') } : null)
         })
-    }, [debouncedRangeTerm])
+    }, [debouncedRangeTerm, categoryId])
 
     return (
         <div className="bg-white w-full sticky top-3 rounded p-4 z-50">
