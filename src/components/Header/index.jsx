@@ -1,13 +1,37 @@
 import logo from '@/assets/img/logo.png'
+import useAuth from '@/hooks/useAuth'
 import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import PhoneIcon from '@mui/icons-material/Phone'
 import { Avatar, Button, Container } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import toast from 'react-hot-toast'
+import { Link, useNavigate } from 'react-router-dom'
+import ConfirmModal from '../ConfirmModal'
 import SearchInput from '../SearchInput'
 
 function Header() {
+    const [isOpenConfirmDialog, setIsOpenConfirmDialog] = useState(false)
+    let navigate = useNavigate()
+    const { auth, setAuth } = useAuth()
+    console.log('v', auth)
+
     return (
         <div>
+            <ConfirmModal
+                title="Đăng xuất"
+                content="Bạn muốn đăng xuất?"
+                isOpen={isOpenConfirmDialog}
+                handleClose={() => setIsOpenConfirmDialog(false)}
+                handleConfirm={() => {
+                    localStorage.removeItem('fbm-user')
+                    toast('Đăng xuất thành công', {
+                        icon: '😏'
+                    })
+                    navigate('/')
+                    setAuth({})
+                    setIsOpenConfirmDialog(false)
+                }}
+            />
             <div className="bg-white text-sm">
                 <Container>
                     <div className="flex justify-between p-1">
@@ -48,15 +72,35 @@ function Header() {
                         <SearchInput />
                     </div>
                     <div className="flex gap-3 justify-end">
-                        <div className="flex items-center gap-2">
-                            <Avatar />
+                        {Object.keys(auth).length === 0 && auth.constructor === Object ? (
                             <div>
-                                <div>Le Anh Tuan</div>
+                                <Button
+                                    className="mr-3"
+                                    variant="contained"
+                                    onClick={() => navigate('/registor')}>
+                                    Đăng ký
+                                </Button>
+                                <Button variant="outlined" onClick={() => navigate('/login')}>
+                                    Đăng nhập
+                                </Button>
                             </div>
-                        </div>
-                        <div>
-                            <Button variant="outlined">Đăng Xuất</Button>
-                        </div>
+                        ) : (
+                            <div className="flex gap-3">
+                                <div className="flex items-center gap-2">
+                                    <Avatar />
+                                    <div>
+                                        <div>{auth.name}</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <Button
+                                        variant="outlined"
+                                        onClick={() => setIsOpenConfirmDialog(true)}>
+                                        Đăng Xuất
+                                    </Button>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </Container>
             </div>

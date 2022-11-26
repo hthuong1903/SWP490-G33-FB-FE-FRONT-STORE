@@ -18,6 +18,8 @@ import IntroductionPage from './pages/InformationDetail/introduce'
 import PaymentInfo from './pages/InformationDetail/payment'
 import SalePolicy from './pages/InformationDetail/salePolicy'
 import ShippingPolicy from './pages/InformationDetail/shippingPolicy'
+import Registor from './pages/Register'
+import ConfirmEmailCode from './pages/Register/components/ConfirmEmailCode'
 function App() {
     const { auth, setAuth } = useAuth()
     const userAuthen = JSON.parse(localStorage.getItem('fbm-user'))
@@ -27,9 +29,10 @@ function App() {
         if (userAuthen !== null) {
             const username = userAuthen.username
             const pwd = userAuthen.pwd
+            const name = userAuthen.name
             const roles = [userAuthen.roles[0].authority]
             const accessToken = userAuthen.token
-            setAuth({ username, pwd, roles, accessToken })
+            setAuth({ username, pwd, roles, accessToken, name })
 
             if (roles[0] === 'CUSTOMER') {
                 navigate('/')
@@ -57,8 +60,10 @@ function App() {
                         <Route path="create" element={<CreateCarts />} />
                     </Route>
                 </Route>
-                <Route path="/login" element={<EmptyLayout />}>
-                    <Route index element={<LoginPage />} />
+                <Route element={<EmptyLayout />}>
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/registor" element={<Registor />} />
+                    <Route path="registor/confirm" element={<ConfirmEmailCode />} />
                 </Route>
             </Routes>
         </div>
