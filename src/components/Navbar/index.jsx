@@ -4,19 +4,26 @@ import MenuIcon from '@mui/icons-material/Menu'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import { Container } from '@mui/system'
 import clsx from 'clsx'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { Context } from '@/contexts/Cart/contexts'
 
 function Banner() {
+    const [state, dispatch] = useContext(Context)
     const [categoryList, setCategoryList] = useState([])
     const [numberCarts, setNumberCarts] = useState(0)
     let { categoryId } = useParams()
-    const userId = 3
 
+    const userId = JSON.parse(localStorage.getItem('fbm-user'))
+        ? JSON.parse(localStorage.getItem('fbm-user')).userId
+        : null
+
+    console.log('render', state)
     useEffect(() => {
         const getOrderById = async (userId) => {
             try {
                 const response = await orderApi.getOrdersByCustomer(userId)
+                console.log('hihi')
                 if (response.data.data.length > 0) {
                     setNumberCarts(response.data.data[0].orderProductDtos?.length)
                 }
@@ -34,8 +41,8 @@ function Banner() {
             }
         }
         getAllCategory()
-        getOrderById(userId)
-    }, [])
+        userId && getOrderById(userId)
+    }, [state])
 
     return (
         <>

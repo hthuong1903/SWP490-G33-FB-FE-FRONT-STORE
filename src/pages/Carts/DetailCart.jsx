@@ -23,7 +23,9 @@ function DetailCarts() {
     const [cartsDetail, setCartsDetail] = useState()
     const [rows, setRows] = useState([])
     const [isRender, setIsRender] = useState(true)
-    const userId = 3
+    const userId = JSON.parse(localStorage.getItem('fbm-user'))
+        ? JSON.parse(localStorage.getItem('fbm-user')).userId
+        : null
 
     const min = 1
     const max = 10

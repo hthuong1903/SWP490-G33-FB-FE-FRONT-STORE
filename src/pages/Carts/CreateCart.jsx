@@ -36,7 +36,9 @@ function CreateCarts() {
     const [isRender, setIsRender] = useState(true)
     const [value, setValue] = useState(1)
     const [changeAddress, setChangeAddress] = useState({ isAddAddress: false })
-    const userId = 3
+    const userId = JSON.parse(localStorage.getItem('fbm-user'))
+        ? JSON.parse(localStorage.getItem('fbm-user')).userId
+        : null
     const navigate = useNavigate()
 
     const handleSelect = (event) => {

@@ -1,15 +1,49 @@
+import orderApi from '@/api/orderApi'
 import productApi from '@/api/productApi'
 import BreadCrumb from '@/components/BreadCrumb'
-import { Button } from '@mui/material'
+import { Context } from '@/contexts/Cart/contexts'
+import { Add, Remove } from '@mui/icons-material'
+import { Box, Button, IconButton, TextField, Typography } from '@mui/material'
 import { Container } from '@mui/system'
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import ThumbGalerry from './components/ThumbGalerry'
 
-function ProductDetails() {
-    const [product, setProduct] = useState()
+const min = 1
+const max = 10
 
+function ProductDetails() {
+    const [state, dispatch] = useContext(Context)
+    const [product, setProduct] = useState()
+    const [quantity, setQuantity] = useState(1)
     let { productId } = useParams()
+    const navigate = useNavigate()
+
+    const userId = JSON.parse(localStorage.getItem('fbm-user'))
+        ? JSON.parse(localStorage.getItem('fbm-user')).userId
+        : null
+
+    const addToCart = async (data) => {
+        try {
+            const response = await orderApi.createCart(data)
+            console.log(response.data.message)
+            toast.success(response.data.message)
+        } catch (error) {
+            console.log('Failed when add to cart', error)
+        }
+    }
+
+    const handleAddToCart = () => {
+        if (userId) {
+            console.log(quantity, productId, userId)
+            addToCart({ quantity, productId, userId })
+            dispatch({ type: 'render' })
+            console.log(state)
+        } else {
+            navigate('../login')
+        }
+    }
 
     const getProductById = async (id) => {
         try {
@@ -64,11 +98,50 @@ function ProductDetails() {
                                 </div>
 
                                 <div className="text-2xl font-bold">
-                                    {((product?.priceOut * (100 - product?.discount)) / 100).toLocaleString('vi-vn')} đ
+                                    {(
+                                        (product?.priceOut * (100 - product?.discount)) /
+                                        100
+                                    ).toLocaleString('vi-vn')}{' '}
+                                    đ
                                 </div>
                             </div>
                             <div className="w-full">
-                                <Button variant="contained" className="w-full">
+                                <Box sx={{ display: 'flex', alignItems: 'center', my: 1 }}>
+                                    <Typography>Số lượng: </Typography>
+                                    <IconButton
+                                        onClick={() => {
+                                            let newQuantity = Number(quantity) - 1
+                                            if (newQuantity < 0) return
+                                            setQuantity(newQuantity)
+                                        }}>
+                                        <Remove />
+                                    </IconButton>
+
+                                    <TextField
+                                        type="number"
+                                        size="small"
+                                        id="outlined-basic"
+                                        variant="outlined"
+                                        inputProps={{ min, max }}
+                                        value={quantity}
+                                        onChange={() => {
+                                            setQuantity(quantity)
+                                        }}
+                                        sx={{ width: '80px' }}
+                                    />
+
+                                    <IconButton
+                                        onClick={() => {
+                                            let newQuantity = Number(quantity) + 1
+                                            setQuantity(newQuantity)
+                                        }}>
+                                        <Add />
+                                    </IconButton>
+                                </Box>
+                                <Button
+                                    variant="contained"
+                                    className="w-full"
+                                    onClick={() => handleAddToCart()}>
                                     THÊM VÀO GIỎ HÀNG
                                 </Button>
                             </div>
