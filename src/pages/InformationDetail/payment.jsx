@@ -15,7 +15,7 @@ export default function PaymentInfo(){
                 <p className='mt-4 mb-4'>
                     <strong>Ngân Hàng Đầu Tư và phát triển (BIDV)</strong>
                 </p>
-                <ul class="marker:text-black-400 list-disc pl-5 space-y-3 mt-3">
+                <ul className="marker:text-black-400 list-disc pl-5 space-y-3 mt-3">
                     <li>
                         Chủ tài khoản : Nguyễn Văn A
                     </li>
@@ -29,7 +29,7 @@ export default function PaymentInfo(){
                 <p className='mt-4 mb-4'>
                     <strong>Ngân Hàng ngoại thương Vietcombank (VCB)</strong>
                 </p>
-                <ul class="marker:text-black-400 list-disc pl-5 space-y-3 mt-3">
+                <ul className="marker:text-black-400 list-disc pl-5 space-y-3 mt-3">
                     <li>
                         Chủ tài khoản : Nguyễn Văn A
                     </li>

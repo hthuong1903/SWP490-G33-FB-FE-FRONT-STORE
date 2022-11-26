@@ -4,11 +4,12 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import { Container } from '@mui/system'
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 
 function Banner() {
     const [categoryList, setCategoryList] = useState([])
     let { categoryId } = useParams()
+    let { pathname } = useLocation()
 
     useEffect(() => {
         const getAllCategory = async () => {
@@ -21,6 +22,7 @@ function Banner() {
             }
         }
         getAllCategory()
+        console.log('location', pathname)
     }, [])
 
     return (
@@ -70,17 +72,27 @@ function Banner() {
                         <div className="ml-4">
                             <Link
                                 to="/introduce"
-                                className="font-semibold py-2 px-4 rounded inline-flex items-center mr-4 hover:bg-ming hover:text-white transition ease-in-out duration-400">
+                                // className="font-semibold py-2 px-4 rounded inline-flex items-center mr-4 hover:bg-ming hover:text-white transition ease-in-out duration-400">
+                                className={clsx(
+                                    'font-semibold py-2 px-4 rounded inline-flex items-center mr-4 hover:bg-ming hover:text-white transition ease-in-out duration-400',
+                                    pathname === '/introduce' ? 'bg-ming text-white' : null
+                                )}>
                                 Giới thiệu
                             </Link>
                             <Link
                                 to="/guide"
-                                className="font-semibold py-2 px-4 rounded inline-flex items-center mr-4 hover:bg-ming hover:text-white transition ease-in-out duration-400">
+                                className={clsx(
+                                    'font-semibold py-2 px-4 rounded inline-flex items-center mr-4 hover:bg-ming hover:text-white transition ease-in-out duration-400',
+                                    pathname === '/guide' ? 'bg-ming text-white' : null
+                                )}>
                                 Hướng dẫn mua hàng
                             </Link>
                             <Link
                                 to="/contract"
-                                className="font-semibold py-2 px-4 rounded inline-flex items-center mr-4 hover:bg-ming hover:text-white transition ease-in-out duration-400">
+                                className={clsx(
+                                    'font-semibold py-2 px-4 rounded inline-flex items-center mr-4 hover:bg-ming hover:text-white transition ease-in-out duration-400',
+                                    pathname === '/contract' ? 'bg-ming text-white' : null
+                                )}>
                                 Liên hệ
                             </Link>
                         </div>

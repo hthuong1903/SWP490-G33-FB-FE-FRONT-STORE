@@ -11,7 +11,7 @@ import FilterArea from './components/FilterArea'
 
 export default function ListingProduct() {
     const [productList, setProductList] = useState([])
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams] = useSearchParams()
     const [pageSize, setPageSize] = useState(15)
     const [totalResult, setTotalResult] = useState(0)
     const [sortType, setSortType] = useState('name')
@@ -37,7 +37,7 @@ export default function ListingProduct() {
                 pageSize: 15,
                 priceMax: price_to,
                 priceMin: price_from,
-                sortBy: 'id'
+                sortBy: sortType
             }
 
             try {
@@ -52,7 +52,7 @@ export default function ListingProduct() {
         if (price_from) {
             getAllProductList()
         }
-    }, [searchParams, pageSize])
+    }, [searchParams, pageSize, sortType])
 
     return (
         <Container>

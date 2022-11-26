@@ -2,7 +2,8 @@ import authApi from '@/api/authApi'
 import Logo from '@/assets/img/logo.png'
 import useAuth from '@/hooks/useAuth'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Button, TextField } from '@mui/material'
+import { LoadingButton } from '@mui/lab'
+import { TextField } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
@@ -111,9 +112,13 @@ function LoginPage() {
                     </div>
                 </div>
                 <div className="w-full">
-                    <Button variant="contained" className="w-full" onClick={handleSubmit(onSubmit)}>
+                    <LoadingButton
+                        loading={isLoading}
+                        variant="contained"
+                        className="w-full"
+                        onClick={handleSubmit(onSubmit)}>
                         Đăng nhập
-                    </Button>
+                    </LoadingButton>
                 </div>
             </div>
         </div>

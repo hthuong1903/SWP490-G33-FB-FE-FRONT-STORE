@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import CartLayout from './assets/layout/CartLayout'
 import EmptyLayout from './assets/layout/EmptyLayout'
 import MainLayout from './assets/layout/MainLayout'
@@ -9,21 +9,20 @@ import useAuth from './hooks/useAuth'
 import CreateCarts from './pages/Carts/CreateCart'
 import DetailCarts from './pages/Carts/DetailCart'
 import Home from './pages/Home'
-import ListingProduct from './pages/ListingProduct'
-import LoginPage from './pages/Login'
-import ProductDetails from './pages/ProductDetails'
 import ContractInformation from './pages/InformationDetail/Contract'
 import ShoppingGuide from './pages/InformationDetail/Guide'
 import IntroductionPage from './pages/InformationDetail/introduce'
 import PaymentInfo from './pages/InformationDetail/payment'
 import SalePolicy from './pages/InformationDetail/salePolicy'
 import ShippingPolicy from './pages/InformationDetail/shippingPolicy'
+import ListingProduct from './pages/ListingProduct'
+import LoginPage from './pages/Login'
+import ProductDetails from './pages/ProductDetails'
 import Registor from './pages/Register'
 import ConfirmEmailCode from './pages/Register/components/ConfirmEmailCode'
 function App() {
     const { auth, setAuth } = useAuth()
     const userAuthen = JSON.parse(localStorage.getItem('fbm-user'))
-    let navigate = useNavigate()
 
     useEffect(() => {
         if (userAuthen !== null) {
@@ -33,10 +32,6 @@ function App() {
             const roles = [userAuthen.roles[0].authority]
             const accessToken = userAuthen.token
             setAuth({ username, pwd, roles, accessToken, name })
-
-            if (roles[0] === 'CUSTOMER') {
-                navigate('/')
-            }
         }
         console.log(auth)
     }, [])

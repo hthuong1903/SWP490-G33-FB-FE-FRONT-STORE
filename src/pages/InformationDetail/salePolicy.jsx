@@ -10,7 +10,7 @@ export default function SalePolicy() {
                 <p className='mb-3'>– Hàng có sẵn đặt cọc trước 10% giá trị sản phẩm trước khi chuyển hàng.</p>
                 <p className='mb-3'>– Hàng không có sẵn đặt sản xuất theo yêu cầu, khách hàng đặt cọc trước tối thiểu 30% giá trị đơn hàng.</p>
                 <p className='mb-3'>Xem thêm: </p>
-                <ul class="marker:text-black-400 list-disc pl-5 space-y-3 mt-3 text-blue-500 visited:text-blue-300">
+                <ul className="marker:text-black-400 list-disc pl-5 space-y-3 mt-3 text-blue-500 visited:text-blue-300">
                     <li>
                         <a href=''>Hướng dẫn mua hàng</a>
                     </li>
