@@ -3,17 +3,17 @@ import Logo from '@/assets/img/logo.png'
 import useAuth from '@/hooks/useAuth'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Button, TextField } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
+import toast from 'react-hot-toast'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import * as yup from 'yup'
 
 function LoginPage() {
     const [isLoading, setIsLoading] = useState(false)
     let navigate = useNavigate()
+    const location = useLocation()
     const { setAuth } = useAuth()
-
     const schema = yup.object().shape({
         username: yup.string().required('Không được bỏ trống'),
         password: yup.string().required('Không được bỏ trống')
@@ -36,16 +36,21 @@ function LoginPage() {
             console.log(response.data.data[0])
             localStorage.setItem('fbm-user', JSON.stringify(response.data.data[0]))
             const username = JSON.parse(localStorage.getItem('fbm-user')).username
+            const name = JSON.parse(localStorage.getItem('fbm-user')).name
             const pwd = JSON.parse(localStorage.getItem('fbm-user')).pwd
             const roles = [JSON.parse(localStorage.getItem('fbm-user')).roles[0].authority]
             const accessToken = JSON.parse(localStorage.getItem('fbm-user')).token
             console.log(roles)
 
-            setAuth({ username, pwd, roles, accessToken })
+            setAuth({ username, pwd, roles, accessToken, name })
             setIsLoading(false)
 
             if (roles[0] === 'CUSTOMER') {
                 navigate('/')
+                toast.success('Đăng nhập thành công!')
+                if (location.state) {
+                    console.log(location.state)
+                }
             } else {
                 toast.error('Sai thông tin đăng nhập!')
             }
@@ -57,6 +62,17 @@ function LoginPage() {
             }
         }
     }
+
+    useEffect(() => {
+        if (location.state) {
+            if (location.state.from.pathname === '/cart') {
+                toast('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!', {
+                    icon: '🛒',
+                    id: 'login-fromcart'
+                })
+            }
+        }
+    }, [])
 
     return (
         <div className="w-screen h-screen flex items-center justify-center bg-ming">

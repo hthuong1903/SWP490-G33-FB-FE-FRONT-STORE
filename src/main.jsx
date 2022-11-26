@@ -1,12 +1,12 @@
+import { CssBaseline, ThemeProvider } from '@mui/material'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
-import { theme } from './assets/theme'
-import { CssBaseline, ThemeProvider } from '@mui/material'
+import { Toaster } from 'react-hot-toast'
 import { BrowserRouter } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
+import App from './App'
+import { theme } from './assets/theme'
 import { AuthProvider } from './context/AuthProvider'
+import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <AuthProvider>
                 <ThemeProvider theme={theme}>
                     <CssBaseline />
-                    <ToastContainer
+                    {/* <ToastContainer
                         position="top-right"
                         autoClose={3000}
                         hideProgressBar={false}
@@ -25,7 +25,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                         draggable
                         pauseOnHover
                         limit={3}
-                    />
+                    /> */}
+                    <Toaster position="top-center" reverseOrder={false} />
                     <App />
                 </ThemeProvider>
             </AuthProvider>
