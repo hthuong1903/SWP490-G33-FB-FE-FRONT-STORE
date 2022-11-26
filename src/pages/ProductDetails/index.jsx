@@ -7,8 +7,8 @@ import { Box, Button, IconButton, TextField, Typography } from '@mui/material'
 import { Container } from '@mui/system'
 import { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { toast } from 'react-toastify'
 import ThumbGalerry from './components/ThumbGalerry'
+import toast from 'react-hot-toast'
 
 const min = 1
 const max = 10
@@ -28,6 +28,7 @@ function ProductDetails() {
         try {
             const response = await orderApi.createCart(data)
             console.log(response.data.message)
+            dispatch({ type: 'render' })
             toast.success(response.data.message)
         } catch (error) {
             console.log('Failed when add to cart', error)
@@ -36,10 +37,7 @@ function ProductDetails() {
 
     const handleAddToCart = () => {
         if (userId) {
-            console.log(quantity, productId, userId)
             addToCart({ quantity, productId, userId })
-            dispatch({ type: 'render' })
-            console.log(state)
         } else {
             navigate('../login')
         }
