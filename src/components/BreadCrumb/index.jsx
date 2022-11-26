@@ -44,6 +44,7 @@ export default function BreadCrumb({ routers }) {
                             component={Link}
                             to={i.link}
                             label={i.label}
+                            disabled={i.disabled}
                         />
                     )
                 })}

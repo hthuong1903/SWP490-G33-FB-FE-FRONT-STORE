@@ -17,6 +17,10 @@ const productApi = {
     getAllCategory: () => {
         const url = `${BASE_URL}/categorys`
         return axios.get(url)
+    },
+    getProductById:(productId)=>{
+        const url = `${BASE_URL}/products/${productId}`
+        return axios.get(url)
     }
 }
 

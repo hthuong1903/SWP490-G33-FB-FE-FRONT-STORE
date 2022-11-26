@@ -18,8 +18,8 @@ function SearchInput() {
     // console.log()
 
     useEffect(() => {
-        const price_from = searchParams.get('price_from') || 100000
-        const price_to = searchParams.get('price_to') || 100000
+        const price_from = searchParams.get('price_from') || 1000000
+        const price_to = searchParams.get('price_to') || 10000000
         const wood_type = searchParams.getAll('wood_type')
 
         if (debouncedSearchTerm) {
@@ -29,8 +29,8 @@ function SearchInput() {
                 wood_type: wood_type,
                 search: debouncedSearchTerm
             })
-            if (pathname === '/') {
-                navigate('/products/all')
+            if (pathname === '/' || pathname.split('/').includes('details')) {
+                navigate(`/products/all/?search=${debouncedSearchTerm}`)
             }
             console.log('debound', debouncedSearchTerm)
         } else if (debouncedSearchTerm === '') {

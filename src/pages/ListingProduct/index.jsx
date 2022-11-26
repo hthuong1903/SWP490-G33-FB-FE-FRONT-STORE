@@ -106,6 +106,7 @@ export default function ListingProduct() {
                                             title={product.name}
                                             price={product.priceOut}
                                             discount={product.discount}
+                                            productId={product.id}
                                             afterDiscount={(
                                                 (product.priceOut * (100 - product.discount)) /
                                                 100
