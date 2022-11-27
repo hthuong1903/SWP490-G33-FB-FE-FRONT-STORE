@@ -1,7 +1,7 @@
 import { Container } from '@mui/system'
 export default function ShippingPolicy() {
     return (
-        <div className='font-serif mt-6'>
+        <div className='mt-6'>
             <Container>
                 <header className='mt-4 mb-4'>
                     <h1 className="text-xl font-bold text-green-600">Chính sách vận chuyển</h1>

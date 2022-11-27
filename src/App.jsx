@@ -48,7 +48,7 @@ function App() {
                     <Route index element={<Home />} />
                     <Route path="products/:categoryId" element={<ListingProduct />} />
                     <Route path="products/details/:productId" element={<ProductDetails />} />
-                    <Route path="contract" element={<ContractInformation />} />
+                    <Route path="contact" element={<ContractInformation />} />
                     <Route path="guide" element={<ShoppingGuide />} />
                     <Route path="introduce" element={<IntroductionPage />} />
                     <Route path="paymentInfo" element={<PaymentInfo />} />

@@ -1,7 +1,7 @@
 import { Container } from '@mui/system'
 export default function IntroductionPage() {
     return (
-        <div className="font-serif mt-6">
+        <div className="mt-6">
             <Container>
                 <div className="mt-3">
                     <header>
@@ -9,7 +9,7 @@ export default function IntroductionPage() {
                     </header>
                     <p className="mt-4">
                         {' '}
-                        Xưởng đồ gỗ <strong>Hoàng Sơn</strong> xin gửi tới Quý khách lời chào trân
+                        Xưởng đồ gỗ  mỹ nghệ <strong>Hoàng Sơn</strong> xin gửi tới Quý khách lời chào trân
                         trọng và lời chúc sức khỏe, hạnh phúc và thịnh vượng!
                     </p>
                     <p className="mt-4">
@@ -22,17 +22,16 @@ export default function IntroductionPage() {
                         Nhắc tới Đồ Gỗ Mỹ Nghệ, hầu hết mọi người đều nhắc tới{' '}
                         <strong>Đồng Kỵ </strong>– một địa điểm nổi tiếng về các loại đồ gỗ cao cấp.
                         Nhưng bên cạnh đó, không thể không nhắc tới
-                        <a href="">làng nghề Quậy Châu Phong</a>. Và nổi chính là
-                        <a href="">Xưởng gỗ đồ gỗ mỹ nghệ Hoàng Sơn</a> – Một trong những xưởng sản
-                        xuất đồ gỗ mỹ nghệ hàng đầu, có uy tín và đáng tin cậy nhất tại làng Châu
-                        Phong.
+                        <a href="" className='text-blue-600 visited:text-blue-600'> làng nghề Đồ Gỗ Vạn Điểm</a>. Và cơ sở uy tín là
+                        <a href="" className='text-blue-600 visited:text-blue-600'> Xưởng gỗ đồ gỗ mỹ nghệ Hoàng Sơn</a> – Một trong những xưởng sản
+                        xuất đồ gỗ mỹ nghệ hàng đầu, có uy tín và đáng tin cậy nhất tại làng Vạn Điểm.
                     </p>
                     <h2 className="mt-5 mb-5">
                         <strong>LỊCH SỬ HÌNH THÀNH & PHÁT TRIỂN</strong>
                     </h2>
                     <p>
-                        <strong>Làng nghề đồ gỗ Châu Phong </strong>
-                        tại thôn Châu Phong, xã Liên Hà, huyện Đông Anh, thành phố Hà Nội bắt đầu
+                        <strong>Làng nghề đồ gỗ Vạn Điểm </strong>
+                        tại xã Vạn Điểm, huyện Thường Tín, thành phố Hà Nội bắt đầu
                         phát triển mạnh từ hơn 20 năm trước. Khi đó khoảng 90% người dân đã không
                         làm nông nghiệp nữa mà chuyển hẳn sang sản xuất đồ gỗ mỹ nghệ thủ công. Và
                         Hoàng Sơn là một trong những
@@ -61,7 +60,7 @@ export default function IntroductionPage() {
                         như
                         <a href="">gỗ hương, trắc, cẩm lai, gỗ gục</a>, gỗ mun,… Với tiêu chí
                         <em> “Tốt gỗ hơn tốt nước sơn”</em>
-                        và đặt chữ “Tín” lên hàng đầu, Đồ Gỗ Phạm Gia cam kết sẽ mang đến cho khách
+                        và đặt chữ “Tín” lên hàng đầu, Đồ Gỗ Hoàng Sơn cam kết sẽ mang đến cho khách
                         hàng những sản phẩm thật sự đẳng cấp với mức giá rẻ tận gốc.
                     </p>
                     <p className="mt-5 mb-5">
