@@ -1,7 +1,7 @@
 import { Container } from '@mui/system'
 export default function ContractInformation() {
     return (
-        <div className='font-serif mt-6'>
+        <div className='mt-6'>
             <Container>
                 <div>
                     <header>
@@ -13,11 +13,11 @@ export default function ContractInformation() {
                         </strong>
                     </h3>
                     <p>
-                        Địa chỉ: Làng Nghề Châu Phong, Liên Hà, Đông Anh, Hà Nội.
+                        Địa chỉ: Làng Nghề Vạn Điểm, huyện Thường Tín, Hà Nội.
                     </p>
                     <p className='mt-4'>
                         Liên hệ: <strong>
-                            0342322957(Zalo/FaceBook)
+                            0987239051(Zalo/FaceBook)
                         </strong>
                     </p>
                     <ul className="marker:text-black-400 list-disc pl-5 space-y-3 mt-3">

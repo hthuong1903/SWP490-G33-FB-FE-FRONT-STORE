@@ -109,10 +109,10 @@ function Banner() {
                                 Hướng dẫn mua hàng
                             </Link>
                             <Link
-                                to="/contract"
+                                to="/contact"
                                 className={clsx(
                                     'font-semibold py-2 px-4 rounded inline-flex items-center mr-4 hover:bg-ming hover:text-white transition ease-in-out duration-400',
-                                    pathname === '/contract' ? 'bg-ming text-white' : null
+                                    pathname === '/contact' ? 'bg-ming text-white' : null
                                 )}>
                                 Liên hệ
                             </Link>

@@ -41,7 +41,7 @@ function Header() {
                             <Link to="/shippingPolicy">Vận chuyển</Link>
                             <Link to="/paymentInfo">Thanh toán</Link>
                             <Link to="/guide">Hướng dẫn mua hàng</Link>
-                            <Link to="/contract">Liên hệ</Link>
+                            <Link to="/contact">Liên hệ</Link>
                         </nav>
                     </div>
                 </Container>

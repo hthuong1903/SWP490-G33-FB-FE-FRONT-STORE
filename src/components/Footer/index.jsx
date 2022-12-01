@@ -49,7 +49,7 @@ function Footer() {
                             <Link to="/guide">Hướng dẫn mua hàng</Link>
                         </p>
                         <p>
-                            <Link to="/contract">Liên hệ</Link>
+                            <Link to="/contact">Liên hệ</Link>
                         </p>
                         <p>
                             <Link to="#">Kênh youtube</Link>
@@ -65,9 +65,9 @@ function Footer() {
                     <Link to="/shippingPolicy">Vận chuyển</Link>
                     <Link to="/paymentInfo">Thanh toán</Link>
                     <Link to="/guide">Hướng dẫn mua hàng</Link>
-                    <Link to="/contract">Liên hệ</Link>
+                    <Link to="/contact">Liên hệ</Link>
                 </div>
-                <div className="text-center pb-3">Copyright 2022 by Đồ gỗ ABC</div>
+                <div className="text-center pb-3">Copyright 2022 by Đồ gỗ mỹ nghệ Hoàng Sơn</div>
             </div>
         </div>
     )

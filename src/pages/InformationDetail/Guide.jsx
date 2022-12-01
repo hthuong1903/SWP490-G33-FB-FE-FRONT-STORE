@@ -1,7 +1,7 @@
 import { Container } from '@mui/system'
 export default function ShoppingGuide() {
     return (
-        <div className='font-serif mt-6'>
+        <div className='mt-6'>
             <Container>
                 <div>
                     <h1 className="text-xl font-bold text-green-600">Hướng dẫn mua hàng</h1>
@@ -53,16 +53,16 @@ export default function ShoppingGuide() {
                     </div>
                 </div>
                 <div>
-                    <h1 className='text-xl font-bold'>Thông Tin Liên Hệ</h1>
+                    <h1 className='text-xl font-bold mt-10'>Thông Tin Liên Hệ</h1>
                     <ul className='marker:text-black-400 list-disc pl-5 space-y-3 mt-3'>
                         <li>
                         Địa chỉ: Thường Tín, Hà Nội
                         </li>
                         <li>
-                        Hotline: (+84) 0972.971.555 – 084.282.7555
+                        Hotline: (+84) 0989.887.300 - 0915.116.177
                         </li>
                         <li>
-                        Zalo: 0972.971.555
+                        Zalo: 0989.887.300
                         </li>
                     </ul>
                 </div>
