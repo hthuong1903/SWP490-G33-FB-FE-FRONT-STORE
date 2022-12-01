@@ -21,6 +21,10 @@ const productApi = {
     getProductById:(productId)=>{
         const url = `${BASE_URL}/products/${productId}`
         return axios.get(url)
+    },
+    getAllMaterial:()=>{
+        const url = `${BASE_URL}/materials`
+        return axios.get(url)
     }
 }
 

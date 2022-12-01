@@ -12,14 +12,15 @@ function ConfirmEmailCode() {
     const email = searchParams.get('email')
 
     const verifyEmail = async (verifyCode, email) => {
+        console
         try {
             const response = await authApi.verifyEmail(verifyCode, email)
             console.log('verifyEmail', response)
-            if (response.data.length) {
-                toast.success(response.message)
+            if (response.data.data.length) {
+                toast.success(response.data.message)
                 navigate('/login')
             } else {
-                toast.error(response.message)
+                toast.error(response.data.message)
             }
         } catch (error) {
             console.log('fail at verifyEmail', error)
@@ -28,6 +29,7 @@ function ConfirmEmailCode() {
 
     return (
         <Box
+            className="bg-ming"
             sx={{
                 height: '100vh',
                 display: 'flex',

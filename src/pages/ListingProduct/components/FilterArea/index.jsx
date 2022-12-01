@@ -1,20 +1,22 @@
+import productApi from '@/api/productApi'
 import useDebounce from '@/hooks/useDebounce'
 import { Checkbox, FormControl, FormControlLabel, FormGroup, Slider } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { useParams, useSearchParams } from 'react-router-dom'
 
-const woodTypes = [
-    { label: 'Gu', value: 1 },
-    { label: 'Cam', value: 2 },
-    { label: 'Trac', value: 3 },
-    { label: 'Huong', value: 4 },
-    { label: 'Lim', value: 5 }
-]
+// const woodTypes = [
+//     { label: 'Gu', value: 1 },
+//     { label: 'Cam', value: 2 },
+//     { label: 'Trac', value: 3 },
+//     { label: 'Huong', value: 4 },
+//     { label: 'Lim', value: 5 }
+// ]
 
 function FilterArea() {
     const [value, setValue] = useState([1000000, 10000000])
     const [isChecked, setIsChecked] = useState([])
+    const [woodTypes, setWoodTypes] = useState([])
     const [searchParams, setSearchParams] = useSearchParams()
     let { categoryId } = useParams()
 
@@ -29,6 +31,19 @@ function FilterArea() {
             woodTypes: []
         }
     })
+
+    const getAllMaterial = async () => {
+        try {
+            const response = await productApi.getAllMaterial()
+            console.log('getAllMaterial', response)
+            setWoodTypes(response.data.data)
+        } catch (error) {
+            console.log('failt at getAllMaterial', error)
+        }
+    }
+    useEffect(() => {
+        getAllMaterial()
+    }, [])
 
     useEffect(() => {
         console.log(isChecked)
@@ -81,16 +96,16 @@ function FilterArea() {
                                 <>
                                     {woodTypes.map((item) => (
                                         <FormControlLabel
-                                            value={item.value}
-                                            key={item.value}
-                                            label={item.label}
+                                            value={item.id}
+                                            key={item.id}
+                                            label={item.name}
                                             control={
                                                 <Checkbox
                                                     required
-                                                    value={item.value}
+                                                    value={item.id}
                                                     checked={field.value.some(
                                                         (existingValue) =>
-                                                            existingValue == item.value
+                                                            existingValue == item.id
                                                     )}
                                                     onChange={(event, checked) => {
                                                         if (checked) {

@@ -12,8 +12,8 @@ const authApi = {
         return axios.post(url, data)
     },
     verifyEmail: (verifyCode, email) => {
-        const url = `/verify?verifyCode=${verifyCode}&email=${email}`
-        return axiosClient.get(url)
+        const url = `${BASE_URL}/verify?verifyCode=${verifyCode}&email=${email}`
+        return axios.get(url)
     },
     signIn: (data) => {
         const url = `${BASE_URL}/signin`
