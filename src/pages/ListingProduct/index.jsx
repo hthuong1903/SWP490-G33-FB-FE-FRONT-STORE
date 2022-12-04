@@ -2,7 +2,7 @@ import productApi from '@/api/productApi'
 import BreadCrumb from '@/components/BreadCrumb'
 import CardItem from '@/components/CardItem'
 import NotFoundPage from '@/components/NotFoundPage'
-import { Button, MenuItem, TextField } from '@mui/material'
+import { Button, MenuItem, Pagination, TextField } from '@mui/material'
 import { Container } from '@mui/system'
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
@@ -12,9 +12,9 @@ import FilterArea from './components/FilterArea'
 export default function ListingProduct() {
     const [productList, setProductList] = useState([])
     const [searchParams] = useSearchParams()
-    const [pageSize, setPageSize] = useState(15)
-    const [totalResult, setTotalResult] = useState(0)
+    const [totalPage, setTotalPage] = useState(0)
     const [sortType, setSortType] = useState('name')
+    const [pageNo, setPageNo] = useState(0)
 
     const price_from = searchParams.get('price_from')
     const price_to = searchParams.get('price_to')
@@ -33,7 +33,7 @@ export default function ListingProduct() {
                 categoryId: categoryId === 'all' ? null : categoryId,
                 listIdMaterial: wood_type,
                 ...(search ? { name: search } : { name: '' }),
-                pageNo: 0,
+                pageNo: pageNo,
                 pageSize: 15,
                 priceMax: price_to,
                 priceMin: price_from,
@@ -43,7 +43,7 @@ export default function ListingProduct() {
             try {
                 const response = await productApi.getAllProductByFilter(payload)
                 setProductList(response.data.data)
-                setTotalResult(response.data.totalResult)
+                setTotalPage(response.data.totalPage)
                 console.log('getAllProductList', response)
             } catch (error) {
                 console.log('fail at getAllProductList', error)
@@ -52,7 +52,16 @@ export default function ListingProduct() {
         if (price_from) {
             getAllProductList()
         }
-    }, [searchParams, pageSize, sortType])
+    }, [searchParams, sortType, pageNo])
+
+    const handleChangePageNo = (event, value) => {
+        console.log(value)
+        setPageNo(value - 1)
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
 
     return (
         <Container>
@@ -115,14 +124,13 @@ export default function ListingProduct() {
                                     )
                                 })}
                             </div>
-                            <div className="flex justify-center">
-                                <Button
-                                    variant="contained"
-                                    className="m-0 w-60"
-                                    onClick={() => setPageSize((prev) => prev + 6)}
-                                    disabled={pageSize > totalResult}>
-                                    Xem thêm
-                                </Button>
+                            <div className="flex justify-end">
+                                <Pagination
+                                    count={totalPage}
+                                    shape="rounded"
+                                    color="primary"
+                                    onChange={handleChangePageNo}
+                                />
                             </div>
                         </>
                     )}

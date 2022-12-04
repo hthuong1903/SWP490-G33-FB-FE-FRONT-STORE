@@ -24,7 +24,6 @@ function App() {
     const { setAuth } = useAuth()
     let { pathname } = useLocation()
     let navigate = useNavigate()
-    console.log('pathname', pathname)
     const userAuthen = JSON.parse(localStorage.getItem('fbm-user'))
 
     useEffect(() => {
@@ -34,9 +33,6 @@ function App() {
             const name = userAuthen.name
             const roles = [userAuthen.roles[0].authority]
             const accessToken = userAuthen.token
-
-            console.log('ok')
-
             setAuth({ username, pwd, roles, accessToken, name })
             navigate(pathname)
         }
