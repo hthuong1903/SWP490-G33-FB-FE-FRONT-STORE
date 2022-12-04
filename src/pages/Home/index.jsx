@@ -50,7 +50,7 @@ export default function Home() {
                 {categoryList.map((category) => {
                     return (
                         <Fragment key={category.id}>
-                            <CategoryTitle title={category.name} linkNav="do-go" />
+                            <CategoryTitle title={category.name} linkNav={`/products/${category.id}`} />
                             <div
                                 className={clsx(
                                     'grid',
