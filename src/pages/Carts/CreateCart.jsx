@@ -26,7 +26,7 @@ import ModalChangeAddress from './components/ModalChangeAddress'
 import { Add } from '@mui/icons-material'
 import moment from 'moment/moment'
 // import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Navigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 
 function CreateCarts() {
@@ -122,6 +122,7 @@ function CreateCarts() {
             } else {
                 toast.error(response.data.message)
             }
+            navigate("/cart")
         } catch (error) {
             console.log(error)
         }
@@ -263,7 +264,7 @@ function CreateCarts() {
                                                                 {row?.product.name}
                                                             </Typography>
                                                             <Typography variant="button">
-                                                                SKU: {row?.product.productCode}
+                                                                MÃ SẢN PHẨM: {row?.product.productCode}
                                                             </Typography>
                                                             <br />
                                                             <Typography variant="button">
