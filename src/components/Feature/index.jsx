@@ -40,17 +40,13 @@ function Feature() {
             </div>
             <div className="bg-gray-200 p-4 mt-14 flex items-center">
                 <p>
-                    <b>Lorem ipsum</b> dolor sit amet consectetur adipisicing elit. Aliquid,
-                    voluptas quo? Fuga rem natus architecto neque autem officia quis impedit ex,
-                    eligendi mollitia aliquid et veniam aut cumque molestiae nam! Ipsa a deserunt
-                    nesciunt repellat quod commodi aperiam id impedit libero, eligendi voluptatibus
-                    iste, atque aut! Dignissimos adipisci ea laborum consequuntur maiores incidunt,
-                    hic voluptate accusamus molestias dolor
+                    <b>Đồ gỗ mỹ nghệ</b> từ lâu đã trở thành thú vui tao nhã và là niềm đam mê của rất nhiều người. Nó không chỉ mang lại giá trị thẩm mỹ, mà hơn thế khi được coi như là những vật phẩm phong thủy để cầu mong may mắn, sức khỏe, tài lộc và bình an.
+                        Nhắc tới Đồ Gỗ Mỹ Nghệ, hầu hết mọi người đều nhắc tới <strong>Đồng Kỵ </strong>– một địa điểm nổi tiếng về các loại đồ gỗ cao cấp. Nhưng bên cạnh đó, không thể không nhắc tới <a href="" className='text-blue-600 visited:text-blue-600'>làng nghề Đồ Gỗ Vạn Điểm</a>. Và cơ sở uy tín là <a href="" className='text-blue-600 visited:text-blue-600'>Xưởng gỗ đồ gỗ mỹ nghệ Hoàng Sơn </a> – Một trong những xưởng sản xuất đồ gỗ mỹ nghệ hàng đầu, có uy tín và đáng tin cậy nhất tại làng Vạn Điểm.
                 </p>
                 <div className="flex-initial w-96">
-                    <Button className="transition ease-in-out underline hover:scale-110">
+                    <a href='/introduce' className='text-blue-600 visited:text-blue-600'>
                         Giới thiệu
-                    </Button>
+                    </a>
                 </div>
             </div>
         </Container>
