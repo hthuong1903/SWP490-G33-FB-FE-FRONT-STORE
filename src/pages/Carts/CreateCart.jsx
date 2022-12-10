@@ -214,8 +214,8 @@ function CreateCarts() {
                                     control={<Radio />}
                                     label="Chuyển khoản"
                                 />
-                                <FormControlLabel value={3} control={<Radio />} label="Quẹt thẻ" />
-                                <FormControlLabel value={4} control={<Radio />} label="COD" />
+                                {/* <FormControlLabel value={3} control={<Radio />} label="Quẹt thẻ" />
+                                <FormControlLabel value={4} control={<Radio />} label="COD" /> */}
                             </RadioGroup>
                         </FormControl>
                     </Grid>
