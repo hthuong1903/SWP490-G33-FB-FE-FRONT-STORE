@@ -5,16 +5,9 @@ import { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { useParams, useSearchParams } from 'react-router-dom'
 
-// const woodTypes = [
-//     { label: 'Gu', value: 1 },
-//     { label: 'Cam', value: 2 },
-//     { label: 'Trac', value: 3 },
-//     { label: 'Huong', value: 4 },
-//     { label: 'Lim', value: 5 }
-// ]
-
 function FilterArea() {
     const [value, setValue] = useState([1000000, 10000000])
+    const [value1, setValue1] = useState([])
     const [isChecked, setIsChecked] = useState([])
     const [woodTypes, setWoodTypes] = useState([])
     const [searchParams, setSearchParams] = useSearchParams()
@@ -23,7 +16,7 @@ function FilterArea() {
     const debouncedRangeTerm = useDebounce(value, 600)
 
     const handleChange = (event, newValue) => {
-        setValue(newValue)
+        setValue1(newValue)
     }
     const { control } = useForm({
         mode: 'onChange',
@@ -31,18 +24,27 @@ function FilterArea() {
             woodTypes: []
         }
     })
-
+    const getMinMaxPrice = async () => {
+        try {
+            const response = await productApi.getMinMaxProduct()
+            console.log('getMinMax', [response.data.data[0].min, response.data.data[0].max])
+            setValue1([response.data.data[0].min, response.data.data[0].max])
+        } catch (error) {
+            console.log('Fail at getMinMaxPrice', error)
+        }
+    }
     const getAllMaterial = async () => {
         try {
             const response = await productApi.getAllMaterial()
             console.log('getAllMaterial', response)
             setWoodTypes(response.data.data)
         } catch (error) {
-            console.log('failt at getAllMaterial', error)
+            console.log('fail at getAllMaterial', error)
         }
     }
     useEffect(() => {
-        getAllMaterial()
+        getAllMaterial(),
+        getMinMaxPrice()
     }, [])
 
     useEffect(() => {
@@ -60,29 +62,29 @@ function FilterArea() {
 
     useEffect(() => {
         setSearchParams({
-            price_from: value[0],
-            price_to: value[1],
+            price_from: value1[0],
+            price_to: value1[1],
             wood_type: searchParams.getAll('wood_type'),
             ...(searchParams.get('search') ? { search: searchParams.get('search') } : null)
         })
     }, [debouncedRangeTerm, categoryId])
-
+    console.log('-------minmax', value1)
     return (
         <div className="bg-white w-full sticky top-3 rounded p-4 z-50">
             <div>
                 <div className="font-bold text-lg">Khoảng giá</div>
                 <Slider
-                    value={value}
+                    value={value1}
                     onChange={handleChange}
                     valueLabelDisplay="auto"
-                    valueLabelFormat={(value) => <div>{value.toLocaleString('vi-VN')}đ</div>}
+                    valueLabelFormat={(value1) => <div>{value1 ? value1.toLocaleString('vi-VN') : ' '}đ</div>}
                     step={10000}
-                    min={1000000}
-                    max={10000000}
+                    min={value1[0]}
+                    max={value1[1]}
                     className="mt-3"
                 />
                 <div className="text-sm text-center mt-3">
-                    Từ {value[0].toLocaleString('vi-VN')}đ đến {value[1].toLocaleString('vi-VN')}đ
+                    Từ {value1[0] ? value1[0].toLocaleString('vi-VN') : ' '}đ đến {value1[1] ? value1[1].toLocaleString('vi-VN') : ' '}đ
                 </div>
             </div>
             <div>

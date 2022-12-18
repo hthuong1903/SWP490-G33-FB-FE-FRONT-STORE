@@ -23,9 +23,11 @@ function Header() {
                 handleClose={() => setIsOpenConfirmDialog(false)}
                 handleConfirm={() => {
                     localStorage.removeItem('fbm-user')
-                    toast('Đăng xuất thành công', {
-                        icon: '😏'
-                    })
+                    toast('Đăng xuất thành công'
+                    // , {
+                    //     icon: '😏'
+                    // }
+                    )
                     navigate('/')
                     setAuth({})
                     setIsOpenConfirmDialog(false)

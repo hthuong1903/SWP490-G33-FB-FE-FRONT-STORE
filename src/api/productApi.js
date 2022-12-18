@@ -25,6 +25,10 @@ const productApi = {
     getAllMaterial:()=>{
         const url = `${BASE_URL}/materials`
         return axios.get(url)
+    },
+    getMinMaxProduct: () => {
+        const url = `${BASE_URL}/products/max_min_price`
+        return axios.get(url)
     }
 }
 
