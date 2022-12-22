@@ -97,18 +97,18 @@ export default function IntroductionPage() {
                         <strong>Địa chỉ: </strong>
                         H.Thường Tín - TP.Hà Nội
                         <br />
-                        Điện Thoại: 0342322957
+                        Điện Thoại: 0989.887.300
                         <br />
                         Website:
                         <a href="" className="text-blue-600 visited:text-blue-600">
                             {' '}
-                            xuongdogomynghe.com
+                            https://www.noithathoangson.live{' '}
                         </a>
                         <br />
                         Facebook:
                         <a href="" className="text-blue-600 visited:text-blue-600">
                             {' '}
-                            https://www.facebook.com/ntphamgia{' '}
+                            https://www.facebook.com/DoGoHoangSon201{' '}
                         </a>
                     </p>
                 </div>

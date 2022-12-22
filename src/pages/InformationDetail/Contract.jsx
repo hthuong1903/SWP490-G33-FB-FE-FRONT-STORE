@@ -17,15 +17,15 @@ export default function ContractInformation() {
                     </p>
                     <p className='mt-4'>
                         Liên hệ: <strong>
-                            0987239051(Zalo/FaceBook)
+                        0989.887.300(Zalo/FaceBook)
                         </strong>
                     </p>
                     <ul className="marker:text-black-400 list-disc pl-5 space-y-3 mt-3">
                         <li>
-                            Fanpage chính thức: <a href="https://www.facebook.com/ntphamgia/" className="text-blue-600 visited:text-blue-600" target="_blank" rel="noopener noreferrer">https://www.facebook.com/ntphamgia</a>
+                            Fanpage chính thức: <a href="https://www.facebook.com/DoGoHoangSon201" className="text-blue-600 visited:text-blue-600" target="_blank" rel="noopener noreferrer">https://www.facebook.com/DoGoHoangSon201</a>
                         </li>
                         <li>
-                            Website: <a href="https://www.facebook.com/ntphamgia/" className="text-blue-600 visited:text-blue-600" target="_blank" rel="noopener noreferrer">https://www.facebook.com/ntphamgia</a>
+                            Website: <a href="https://www.noithathoangson.live" className="text-blue-600 visited:text-blue-600" target="_blank" rel="noopener noreferrer">https://www.noithathoangson.live</a>
                         </li>
                     </ul>
                 </div>
