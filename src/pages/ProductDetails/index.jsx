@@ -31,7 +31,12 @@ function ProductDetails() {
             const response = await orderApi.createCart(data)
             console.log(response.data.message)
             dispatch({ type: 'render' })
-            toast.success(response.data.message)
+            if (response.data.message === 'Số lượng sản phẩm đặt hàng lớn hơn trong kho') {
+                toast.error(response.data.message)
+            } else {
+                toast.success(response.data.message)
+            }
+            
         } catch (error) {
             console.log('Failed when add to cart', error)
         }
@@ -39,6 +44,9 @@ function ProductDetails() {
 
     const handleAddToCart = () => {
         if (userId) {
+            if (quantity <= 0) {
+                toast.error('Vui lòng thêm sản phẩm!')
+            }
             addToCart({ quantity, productId, userId })
         } else {
             toast('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!', {
