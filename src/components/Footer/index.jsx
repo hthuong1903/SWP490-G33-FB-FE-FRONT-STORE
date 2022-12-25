@@ -11,24 +11,24 @@ function Footer() {
                     <div>
                         <img src={logo} alt="logo" className="w-6/12" />
                         <ul className="mt-4">
-                            <li className="text-lg mb-2">Đồ gỗ ABC</li>
-                            <li className="text-lg mb-2">Địa chỉ: xyz</li>
-                            <li className="text-lg mb-2">Điện thoại: 0968.888.888</li>
+                            <li className="text-lg mb-2">Đồ gỗ nội thất Hoàng Sơn</li>
+                            <li className="text-lg mb-2">Địa chỉ: Làng Nghề Vạn Điểm, huyện Thường Tín, Hà Nội</li>
+                            <li className="text-lg mb-2">Điện thoại: 0989.887.300</li>
                         </ul>
                     </div>
                     <div>
                         <h4 className="text-xl font-bold">Liên hệ & Thanh toán</h4>
                         <p>
-                            <a href="tel:0968888888">Hotline: 0968.888.888</a>
+                            <a href="tel:0968888888">Hotline: 0989.887.300</a>
                         </p>
                         <h5 className="text-lg font-bold">Ngân hàng: BIDV</h5>
-                        <p>Chủ tài khoản: Nghiêm Văn A</p>
+                        <p>Chủ tài khoản: Trần Đức Sơn</p>
                         <p>Số tài khoản: 123456789</p>
-                        <p>Chi nhánh: ABC</p>
+                        <p>Chi nhánh: Thường Tín</p>
                         <h5 className="text-lg font-bold">Ngân hàng: Viettinbank</h5>
-                        <p>Chủ tài khoản: Nghiêm Văn A</p>
+                        <p>Chủ tài khoản: Trần Đức Quang</p>
                         <p>Số tài khoản: 123456789</p>
-                        <p>Chi nhánh: ABC</p>
+                        <p>Chi nhánh: Thường Tín</p>
                     </div>
                     <div className="">
                         <h4 className="text-xl font-bold">Hỗ trợ khách hàng</h4>

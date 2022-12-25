@@ -36,7 +36,7 @@ function Header() {
             <div className="bg-white text-sm">
                 <Container>
                     <div className="flex justify-between p-1">
-                        <Link to="/">Nội thất ABC - Xưởng đồ gỗ</Link>
+                        <Link to="/">Nội thất Hoàng Sơn - Xưởng đồ gỗ</Link>
                         <nav className="flex gap-3">
                             <Link to="/introduce">Giới thiệu</Link>
                             <Link to="/salePolicy">Chính sách bán hàng</Link>
@@ -58,12 +58,12 @@ function Header() {
                         <div>
                             <div className="flex items-center gap-1">
                                 <MailOutlineIcon className="text-base" color="primary" />
-                                <span className="font-medium">Zalo: 0968.888.888</span>
+                                <span className="font-medium">Zalo: 0989.887.300</span>
                             </div>
                             <div className="flex items-center gap-1">
                                 <PhoneIcon className="text-base" color="primary" />
                                 <span className="font-medium">
-                                    <a href="tel:0986666666">Hotline: 0986.666.666</a>
+                                    <a href="tel:0986666666">Hotline: 0989.887.300</a>
                                 </span>
                             </div>
                         </div>
