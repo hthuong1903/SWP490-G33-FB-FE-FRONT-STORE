@@ -85,7 +85,7 @@ function CreateCarts() {
         cartsDetail &&
         cartsDetail.orderProductDtos.reduce(
             (result, value) =>
-                result + value.product.priceOut * (value.product.discount / 100) * value?.quantity,
+                result + value.priceOutProduct * value?.quantity,
             0
         )
 
@@ -94,10 +94,18 @@ function CreateCarts() {
         cartsDetail.orderProductDtos.reduce(
             (result, value) =>
                 result +
-                value.product.priceOut * (value.product.discount / 100) * value?.quantity -
-                value?.changedPrice,
+                value.priceOutProduct * (100-value.discount) / 100 * value?.quantity,
             0
         )
+    
+    const totalDiscount =
+    cartsDetail &&
+    cartsDetail.orderProductDtos.reduce(
+        (result, value) =>
+            result +
+            value.priceOutProduct * (value.discount) / 100 * value?.quantity,
+        0
+    )
 
     const handleCreate = async () => {
         const dataSubmit = {
@@ -238,6 +246,11 @@ function CreateCarts() {
                                             align="left">
                                             Giá bán
                                         </StyledTableCell>
+                                        <StyledTableCell
+                                            sx={{ backgroundColor: '#e6e4e4' }}
+                                            align="left">
+                                            Giảm giá
+                                        </StyledTableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -275,10 +288,12 @@ function CreateCarts() {
                                                 </StyledTableCell>
                                                 <StyledTableCell align="left">
                                                     {(
-                                                        row.product.priceOut *
-                                                        (row.product.discount / 100)
+                                                        row.priceOutProduct
                                                     ).toLocaleString('vi-vn')}{' '}
                                                     VND
+                                                </StyledTableCell>
+                                                <StyledTableCell align="center">
+                                                    {row.discount}%
                                                 </StyledTableCell>
                                             </StyledTableRow>
                                         ))}
@@ -299,9 +314,9 @@ function CreateCarts() {
                                             <td>{totalAmount?.toLocaleString('vi-VN')} VND</td>
                                         </tr>
                                         <tr>
-                                            <td>Tổng tiền chiết khấu</td>
+                                            <td>Tổng tiền giảm giá</td>
                                             <td>
-                                                {cartsDetail.totalOrderPriceAfter.toLocaleString(
+                                                {totalDiscount?.toLocaleString(
                                                     'vi-VN'
                                                 )}{' '}
                                                 VND

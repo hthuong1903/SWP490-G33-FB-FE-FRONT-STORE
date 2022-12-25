@@ -56,7 +56,7 @@ function DetailCarts() {
     }, [isRender, productList, rows, cartsDetail])
 
     const totalDiscount = useMemo(
-        () => rows.reduce((result, value) => result + value.changedPrice, 0),
+        () => rows.reduce((result, value) => result + (value.discount)/100 * value.priceOutProduct * value.quantity, 0),
         [rows]
     )
     const totalAmount = rows.reduce(
@@ -68,6 +68,9 @@ function DetailCarts() {
         0
     )
 
+    useEffect(() => {
+        console.log('rows', rows)
+    }, [rows])
     // const resultDiscount = () => rows.reduce((result, value) => result + value.discount, 0)
     const handleCreate = async (data) => {
         const dataSubmit = {
@@ -168,7 +171,7 @@ function DetailCarts() {
                                                                             {row.product.name}
                                                                         </Typography>
                                                                         <Typography variant="button">
-                                                                            SKU:{' '}
+                                                                            MÃ SẢN PHẨM:{' '}
                                                                             {
                                                                                 row.product
                                                                                     .productCode
@@ -178,7 +181,7 @@ function DetailCarts() {
                                                                 </Box>
                                                             </StyledTableCell>
                                                             <StyledTableCell align="left">
-                                                                {row?.product.priceOut.toLocaleString(
+                                                                {row.priceOutProduct.toLocaleString(
                                                                     'vi-vn'
                                                                 )}{' '}
                                                                 VND
@@ -315,9 +318,10 @@ function DetailCarts() {
                                                             </StyledTableCell>
                                                             <StyledTableCell align="left">
                                                                 {(
-                                                                    row?.product.priceOut *
-                                                                        row.quantity -
-                                                                    row.changedPrice
+                                                                    // row?.product.priceOut *
+                                                                    //     row.quantity -
+                                                                    // row.changedPrice
+                                                                    (100 - row.discount)/100*row.priceOutProduct*row.quantity
                                                                 ).toLocaleString('vi-VN')}{' '}
                                                                 VND
                                                             </StyledTableCell>
@@ -389,7 +393,7 @@ function DetailCarts() {
                                                 </td>
                                                 <td>
                                                     <b>
-                                                        {totalAmountAfter.toLocaleString('vi-VN')}{' '}
+                                                        {(totalAmount - totalDiscount).toLocaleString('vi-VN')}{' '}
                                                         VND
                                                     </b>
                                                 </td>
