@@ -132,6 +132,9 @@ function DetailCarts() {
                                                         Giá bán
                                                     </StyledTableCell>
                                                     <StyledTableCell align="center">
+                                                        Giảm giá
+                                                    </StyledTableCell>
+                                                    <StyledTableCell align="center">
                                                         Số lượng
                                                     </StyledTableCell>
                                                     <StyledTableCell align="left">
@@ -185,6 +188,9 @@ function DetailCarts() {
                                                                     'vi-vn'
                                                                 )}{' '}
                                                                 VND
+                                                            </StyledTableCell>
+                                                            <StyledTableCell align="center">
+                                                                {row.discount}%
                                                             </StyledTableCell>
                                                             <StyledTableCell align="center">
                                                                 <Box sx={{ display: 'flex' }}>
